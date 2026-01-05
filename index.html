@@ -258,6 +258,18 @@
     @media (max-width: 700px) {
       form { grid-template-columns: 1fr; }
     }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     input, textarea {
       width: 100%;
       padding: 12px 12px;
@@ -266,9 +278,22 @@
       background: rgba(0,0,0,0.25);
       color: var(--text);
       outline: none;
+      transition: border-color 120ms ease, box-shadow 120ms ease;
     }
-    textarea { min-height: 110px; grid-column: 1 / -1; resize: vertical; }
+    input:focus, textarea:focus {
+      border-color: rgba(255,255,255,0.45);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
+    }
+    textarea { min-height: 110px; resize: vertical; }
     .form-actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .form-feedback {
+      grid-column: 1 / -1;
+      min-height: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .form-feedback[data-state="error"] { color: #ffb0b0; }
+    .form-feedback[data-state="success"] { color: #9fe4ff; }
     footer {
       padding: 28px 0;
       color: var(--muted);
@@ -294,7 +319,7 @@
         <a class="pill" href="#bootcamps">Bootcamps</a>
         <a class="pill" href="#how">Structure</a>
         <a class="pill" href="#contact">Contact</a>
-        <a class="cta" href="https://forms.gle/RL34fq6CLbv1JWEc7" target="_blank" rel="noopener">Apply Now</a>
+        <a class="cta" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now</a>
       </nav>
     </div>
   </div>
@@ -316,7 +341,7 @@
           </div>
           <div class="hero-actions">
             <a class="btn" href="#bootcamps">Explore Bootcamps</a>
-            <a class="btn secondary" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+            <a class="btn secondary" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
           </div>
         </div>
 
@@ -335,7 +360,7 @@
       </div>
 
       <div class="hero-card hero-img" aria-label="Skill Forward hero image">
-        <img src="http://static1.squarespace.com/static/695a1379c6b5a73bb1d2d92a/t/695ae53693befa00945cff77/1767564598703/ChatGPT+Image+Oct+9%2C+2025%2C+10_26_47+PM.png?format=1500w" alt="Skill Forward hero image" loading="lazy" referrerpolicy="no-referrer" />
+        <img src="https://static1.squarespace.com/static/695a1379c6b5a73bb1d2d92a/t/695ae53693befa00945cff77/1767564598703/ChatGPT+Image+Oct+9%2C+2025%2C+10_26_47+PM.png?format=1500w" alt="Skill Forward hero image" loading="lazy" referrerpolicy="no-referrer" />
       </div>
     </div>
   </div>
@@ -432,7 +457,7 @@
 
           <div class="footer">
             <span class="small">Best for: fast prototype + quick validation</span>
-            <a class="btn" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+            <a class="btn" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
           </div>
         </article>
 
@@ -458,7 +483,7 @@
 
           <div class="footer">
             <span class="small">Best for: deeper build + stronger portfolio asset</span>
-            <a class="btn" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+            <a class="btn" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
           </div>
         </article>
       </div>
@@ -505,12 +530,22 @@
         If you prefer, replace with an embedded Google Form iframe.
       -->
       <form id="contactForm">
-        <input name="name" placeholder="Your name" autocomplete="name" />
-        <input name="email" placeholder="Your email" autocomplete="email" />
-        <textarea name="message" placeholder="What would you like to discuss?"></textarea>
+        <div class="form-field">
+          <label for="contact-name">Your name</label>
+          <input id="contact-name" name="name" placeholder="Jane Doe" autocomplete="name" required />
+        </div>
+        <div class="form-field">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" placeholder="name@email.com" autocomplete="email" required />
+        </div>
+        <div class="form-field full">
+          <label for="contact-message">How can we help?</label>
+          <textarea id="contact-message" name="message" placeholder="Share a question, idea, or project you're exploring." required></textarea>
+        </div>
+        <p class="form-feedback" id="contactFeedback" role="status" aria-live="polite"></p>
         <div class="form-actions">
           <button class="btn" type="submit">Open Email Draft</button>
-          <a class="btn secondary" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+          <a class="btn secondary" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
           <span class="small">This will open your default email client.</span>
         </div>
       </form>
@@ -536,9 +571,23 @@
   })();
 
   // Mailto contact form
-  document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+  const contactForm = document.getElementById('contactForm');
+  const contactFeedback = document.getElementById('contactFeedback');
+
+  function setContactFeedback(message, state = 'info') {
+    if (!contactFeedback) return;
+    contactFeedback.textContent = message;
+    contactFeedback.dataset.state = state;
+  }
+
+  contactForm?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const fd = new FormData(e.target);
+    if (!contactForm.reportValidity()) {
+      setContactFeedback('Please complete every required field.', 'error');
+      return;
+    }
+
+    const fd = new FormData(contactForm);
     const name = (fd.get('name') || '').toString().trim();
     const email = (fd.get('email') || '').toString().trim();
     const msg = (fd.get('message') || '').toString().trim();
@@ -552,6 +601,8 @@
 
     // TODO: Replace with your preferred inbox
     const to = encodeURIComponent('hello@escapewithvelocity.org');
+
+    setContactFeedback('Opening an email draft...', 'success');
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
   });
 </script>
