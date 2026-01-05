@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skill Forward — Escape With Velocity</title>
+  <meta name="description" content="Skill Forward: Accelerate on AI with a 2-week or 4-week bootcamp. Build and ship a personal or community solution." />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --border: rgba(255,255,255,0.14);
+      --shadow: 0 12px 40px rgba(0,0,0,0.45);
+      --radius: 18px;
+      --max: 1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, rgba(255,255,255,0.10), transparent 60%),
+        radial-gradient(900px 600px at 90% 30%, rgba(255,255,255,0.08), transparent 55%),
+        linear-gradient(180deg, #06070a 0%, #0b0c10 40%, #07080b 100%);
+      line-height: 1.45;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(10,11,16,0.60);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .brand strong { letter-spacing: 0.08em; font-size: 13px; text-transform: uppercase; }
+    .brand span { font-size: 12px; color: var(--muted); }
+    .navlinks {
+      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+    }
+    .pill {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      transition: transform 140ms ease, background 140ms ease;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .pill:hover { transform: translateY(-1px); background: rgba(255,255,255,0.07); color: var(--text); }
+    .cta {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .cta:hover { background: rgba(255,255,255,0.14); }
+    .hero {
+      padding: 56px 0 28px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    .hero-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card .copy { padding: 26px; }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 4vw, 54px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 18px;
+      max-width: 65ch;
+    }
+    .meta {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin: 0 0 18px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.04);
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      transition: transform 140ms ease, background 140ms ease;
+      font-weight: 600;
+    }
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.14); }
+    .btn.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+    .hero-img {
+      height: 100%;
+      display: grid;
+      place-items: stretch;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    /* marquee */
+    .marquee {
+      margin: 18px 0 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 28px;
+      padding: 10px 0;
+      width: max-content;
+      animation: scroll 18s linear infinite;
+      will-change: transform;
+    }
+    .marquee span {
+      font-family: var(--mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      white-space: nowrap;
+    }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    section { padding: 44px 0; }
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .hint { color: var(--muted); font-size: 14px; }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 900px) {
+      .grid2 { grid-template-columns: 1fr; }
+    }
+    .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    .card header {
+      position: static;
+      backdrop-filter: none;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+    .num {
+      font-family: var(--mono);
+      color: rgba(255,255,255,0.70);
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .boot-title {
+      margin: 8px 0 10px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .kv {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .kv p {
+      margin: 0;
+      color: rgba(255,255,255,0.86);
+    }
+    ul, ol { margin: 0 0 0 18px; color: rgba(255,255,255,0.84); }
+    li { margin: 8px 0; }
+    .card .footer {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .contact {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 700px) {
+      form { grid-template-columns: 1fr; }
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.25);
+      color: var(--text);
+      outline: none;
+    }
+    textarea { min-height: 110px; grid-column: 1 / -1; resize: vertical; }
+    .form-actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footgrid {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="Skill Forward home">
+        <strong>Skill Forward</strong>
+        <span>An Escape With Velocity project</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a class="pill" href="#ramp">Ramp</a>
+        <a class="pill" href="#bootcamps">Bootcamps</a>
+        <a class="pill" href="#how">Structure</a>
+        <a class="pill" href="#contact">Contact</a>
+        <a class="cta" href="https://forms.gle/RL34fq6CLbv1JWEc7" target="_blank" rel="noopener">Apply Now</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="container hero">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <div class="copy">
+          <h1>ACCELERATE ON AI</h1>
+          <p class="sub">
+            Skill Forward is a hands-on, outcomes-driven bootcamp to help you build and ship a personal and/or community solution—using modern AI tools, clear frameworks, and mentorship.
+          </p>
+          <div class="meta">
+            <span class="tag">Project: Personal and/or Community Solution</span>
+            <span class="tag">Deliverables: Public demo + docs + deployed solution</span>
+            <span class="tag">Stipend + paid AI credits on completion</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="#bootcamps">Explore Bootcamps</a>
+            <a class="btn secondary" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+          </div>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track" id="mq">
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card hero-img" aria-label="Skill Forward hero image">
+        <img src="http://static1.squarespace.com/static/695a1379c6b5a73bb1d2d92a/t/695ae53693befa00945cff77/1767564598703/ChatGPT+Image+Oct+9%2C+2025%2C+10_26_47+PM.png?format=1500w" alt="Skill Forward hero image" loading="lazy" referrerpolicy="no-referrer" />
+      </div>
+    </div>
+  </div>
+
+  
+  <section id="ramp">
+    <div class="container">
+      <div class="section-title">
+        <h2>Ramp on AI</h2>
+        <div class="hint">Start small, ship fast, and build momentum into the bootcamps.</div>
+      </div>
+
+      <div class="grid2">
+        <article class="card">
+          <header>
+            <div class="num">R1</div>
+            <div class="boot-title">PROOF OF WORK PORTFOLIO (RAMP)</div>
+          </header>
+
+          <div class="kv">
+            <p><strong>PROJECT:</strong> BUILD YOUR PROOF OF WORK PORTFOLIO WITH AI TOOLS</p>
+            <p><strong>TIME:</strong> 4 HOURS <span class="small">(plus a 1-hour live session)</span></p>
+            <p><strong>WHAT WE’LL COVER:</strong> INTRODUCTION TO AI TOOLS, PROMPTS TO GET STARTED</p>
+          </div>
+
+          <p class="small"><strong>STRUCTURE</strong></p>
+          <ol>
+            <li>1 × 1-hour live virtual session</li>
+            <li>4 hours of independent work</li>
+            <li>$20 paid AI credits on completion of your Proof Of Work Portfolio</li>
+          </ol>
+
+          <div class="footer">
+            <span class="small">Best for: beginners who want a portfolio artifact quickly</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <header>
+            <div class="num">R2</div>
+            <div class="boot-title">IDEA TO REALITY (10 HR RAMP)</div>
+          </header>
+
+          <div class="kv">
+            <p><strong>PROJECT:</strong> IDEA TO REALITY</p>
+            <p><strong>TIME:</strong> 10 HOURS</p>
+            <p><strong>LESSONS:</strong> ONE 90 MINUTE LESSON</p>
+            <p><strong>WHAT WE’LL COVER:</strong> SPOTTING MIGRAINE PROBLEMS, AI TOOLS, VIBE CODING SOLUTIONS</p>
+          </div>
+
+          <p class="small"><strong>STRUCTURE</strong></p>
+          <ol>
+            <li>1 × 1.5-hour live virtual session</li>
+            <li>8.5 hours of guided independent work <span class="small">(with Mentor Office Hours)</span></li>
+            <li>$80 paid AI credits on deployment of solution</li>
+          </ol>
+
+          <div class="footer">
+            <span class="small">Best for: learners ready to go from use-case to deployed solution</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="bootcamps">
+    <div class="container">
+      <div class="section-title">
+        <h2>Bootcamps</h2>
+        <div class="hint">Two tracks (20 hours or 40 hours). Same outcome: ship something real.</div>
+      </div>
+
+      <div class="grid2">
+        <article class="card">
+          <header>
+            <div class="num">01</div>
+            <div class="boot-title">2 WEEK AI BOOTCAMP (20 hours)</div>
+          </header>
+
+          <div class="kv">
+            <p><strong>Project:</strong> Personal and/or Community Solution</p>
+            <p><strong>Time:</strong> 20 hours</p>
+            <p><strong>What we’ll cover:</strong> Frameworks, AI tools, existing ideas/problems</p>
+          </div>
+
+          <p class="small"><strong>Structure</strong></p>
+          <ol>
+            <li>TWO × 1.5-hour live virtual session</li>
+            <li>FOUR 1-hour mentoring</li>
+            <li>16 hours of independent work</li>
+            <li>Certificate, $320 stipend and $40 AI credits on completion of: (a) Public Loom/YouTube video (b) Public documentation (c) Deployed solution</li>
+          </ol>
+
+          <div class="footer">
+            <span class="small">Best for: fast prototype + quick validation</span>
+            <a class="btn" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <header>
+            <div class="num">02</div>
+            <div class="boot-title">4 WEEK AI BOOTCAMP (40 hours)</div>
+          </header>
+
+          <div class="kv">
+            <p><strong>Project:</strong> Personal and/or Community Solution</p>
+            <p><strong>Time:</strong> 40 hours</p>
+            <p><strong>What we’ll cover:</strong> Frameworks, AI tools, existing ideas/problems</p>
+          </div>
+
+          <p class="small"><strong>Structure</strong></p>
+          <ol>
+            <li>4 × 1-hour live virtual sessions</li>
+            <li>6 hours of guided mentoring/office hours</li>
+            <li>30 hours of independent group work</li>
+            <li>$600 stipend, $80 paid AI credits on completion of: (a) Public Loom/YouTube video (b) Public documentation (c) Deployed solution</li>
+          </ol>
+
+          <div class="footer">
+            <span class="small">Best for: deeper build + stronger portfolio asset</span>
+            <a class="btn" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="container">
+      <div class="section-title">
+        <h2>How it works</h2>
+        <div class="hint">A simple loop: choose a problem → build → demo → document → deploy.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:16px;">What you’ll leave with</h3>
+          <ul>
+            <li>A deployed solution (even if “small”)</li>
+            <li>Public demo video (Loom/YouTube)</li>
+            <li>Public documentation (write-up + links)</li>
+            <li>Certificate + stipend + AI credits (upon completion)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 8px; font-size:16px;">What we emphasize</h3>
+          <ul>
+            <li>Practical frameworks (prompting, evaluation, iteration)</li>
+            <li>Tooling literacy (LLMs, automation, basic deployment)</li>
+            <li>Portfolio-ready artifacts</li>
+            <li>Mentorship and accountability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section><section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Still have questions? <em style="font-weight:600;">let’s chat</em>.</h2>
+        <div class="hint">Send a note here, or apply directly if you’re ready.</div>
+      </div>
+
+      <!--
+        This lightweight form uses mailto so the page stays "single-file" without a backend.
+        If you prefer, replace with an embedded Google Form iframe.
+      -->
+      <form id="contactForm">
+        <input name="name" placeholder="Your name" autocomplete="name" />
+        <input name="email" placeholder="Your email" autocomplete="email" />
+        <textarea name="message" placeholder="What would you like to discuss?"></textarea>
+        <div class="form-actions">
+          <button class="btn" type="submit">Open Email Draft</button>
+          <a class="btn secondary" href="https://forms.gle/csbziaTC7Ksw88iS7" target="_blank" rel="noopener">Apply Now ➺</a>
+          <span class="small">This will open your default email client.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footgrid">
+        <span>© 2026 Skill Forward — Escape With Velocity</span>
+        <span>Built as a lightweight single-page version of the Squarespace export.</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // Duplicate marquee content to create seamless scroll
+  (function() {
+    const track = document.getElementById('mq');
+    if (!track) return;
+    track.innerHTML = track.innerHTML + track.innerHTML;
+  })();
+
+  // Mailto contact form
+  document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const name = (fd.get('name') || '').toString().trim();
+    const email = (fd.get('email') || '').toString().trim();
+    const msg = (fd.get('message') || '').toString().trim();
+
+    const subject = encodeURIComponent('Skill Forward — Question' + (name ? (' from ' + name) : ''));
+    const body = encodeURIComponent(
+      (name ? ('Name: ' + name + '\n') : '') +
+      (email ? ('Email: ' + email + '\n\n') : '') +
+      (msg || '')
+    );
+
+    // TODO: Replace with your preferred inbox
+    const to = encodeURIComponent('hello@escapewithvelocity.org');
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+  });
+</script>
+
+</body>
+</html>
