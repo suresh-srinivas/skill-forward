@@ -194,6 +194,53 @@
     @media (max-width: 900px) {
       .grid2 { grid-template-columns: 1fr; }
     }
+    .gallery {
+      background: rgba(255,255,255,0.02);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .gallery-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card2);
+      min-height: 220px;
+      display: flex;
+      align-items: stretch;
+      isolation: isolate;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05);
+      transition: transform 180ms ease;
+    }
+    .gallery-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(5,6,9,0.75) 100%);
+      opacity: 0.85;
+      transition: opacity 180ms ease;
+      pointer-events: none;
+    }
+    .gallery-card figcaption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 16px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+      z-index: 2;
+    }
+    .gallery-card:hover img { transform: scale(1.03); }
+    .gallery-card:hover::after { opacity: 0.7; }
     .card {
       border: 1px solid var(--border);
       background: var(--card);
@@ -365,6 +412,34 @@
     </div>
   </div>
 
+  
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>Inside the build rooms</h2>
+        <div class="hint">Live critiques, group working sessions, and tooling walk-throughs from recent cohorts.</div>
+      </div>
+
+      <div class="gallery-grid" role="list">
+        <figure class="gallery-card" role="listitem">
+          <img src="assets/upskill1.jpeg" alt="Mentor guiding a participant through an AI workflow." loading="lazy" />
+          <figcaption>Mentor guidance</figcaption>
+        </figure>
+        <figure class="gallery-card" role="listitem">
+          <img src="assets/upskill2.jpeg" alt="Participants pairing around laptops to sketch solutions." loading="lazy" />
+          <figcaption>Pair building</figcaption>
+        </figure>
+        <figure class="gallery-card" role="listitem">
+          <img src="assets/workshop1.jpeg" alt="Group workshop with sticky notes mapping problem statements." loading="lazy" />
+          <figcaption>Problem framing workshops</figcaption>
+        </figure>
+        <figure class="gallery-card" role="listitem">
+          <img src="assets/worksystems.jpeg" alt="Whiteboard mapping deployment and automation workflows." loading="lazy" />
+          <figcaption>Systems thinking</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
   
   <section id="ramp">
     <div class="container">
