@@ -145,11 +145,11 @@ window.COHORT = [
   },
   {
     name: "Sunitha Narayanan",
-    northStar: "Building the invisible systems that enable global innovation. I bridge ambitious business vision with complex architecture to create effortless consumer experiences. In this next chapter I'm focusing on Technical Orchestration within Agentic AI and MLOps — building secure, compliant, ethically architected platforms.",
-    gap: "Architectural orchestration of Agentic AI within MLOps frameworks — mastering autonomous agents requires a new level of precision in governance and deployment pipelines.",
+    northStar: "Creating effortless experiences by unblocking organizations through deep technical strategy and ethical AI orchestration.",
+    gap: "I am developing a research-first framework for Agentic Adoption that moves beyond LLM chat and toward autonomous trust boundaries. This blueprint maps the data-dependencies, cost-to-value gates, and governance required to safely operationalize agents in high-compliance, global environments",
     giving: "Career transitions and modernizing professional narratives. Hoping to gain fresh perspectives on hands-on agentic implementations and the operational trade-offs of moving AI projects from 0 to 1.",
     tools: ["Gemini", "Cursor", "Lovable", "Bolt.new", "Google AI Studio"],
-    site: "https://sunnyportland.github.io/snarayanan-portfolio/",
+    site: "https://snaraportfolio.github.io/aboutme/",
     portfolio: "https://www.linkedin.com/in/nsunitha",
     learnings: "Context window management is just as critical as the code itself. Source-of-truth management is non-negotiable; syncing with GitHub is the only way to prevent a browser-based agent and a local environment from drifting apart.",
     testimonial: "The Skill-Forward RAMP program is a practical 'fast-track' for technology or business professionals who want to translate years of experience into the current market. In just a few sessions, I was able to take my background in technical leadership and turn it into a tangible portfolio. The program moves past the theory — Suresh walked us through specific tools to build real-world artifacts that actually demonstrate value in the AI era. Beyond the technical work, it was great to be in a room with other professionals in similar career transitions. I'm looking forward to the next part of the program!"
