@@ -143,7 +143,7 @@ window.COHORT = [
     testimonial: "Learning with folks in similar situations. This gives me encouragement to continue on my learning path."
   },
   {
-    name: "Kenyon (Rosebud) Acton",
+    name: "Kenyon Acton",
     discipline: "Data",
     screenshot: "screenshots/webp/kenyon-acton.webp",
     northStar: "I want to help people and improve society through data. I'm working on a project around permitting since this seems to be an area cities can use help with — going from policy to practice.",
