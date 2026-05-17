@@ -5,726 +5,682 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skill Forward — Escape With Velocity</title>
   <meta name="description" content="Skill Forward: Accelerate on AI with a 2-week or 4-week bootcamp. Build and ship a personal or community solution." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0c10;
-      --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.08);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.72);
-      --border: rgba(255,255,255,0.14);
-      --shadow: 0 12px 40px rgba(0,0,0,0.45);
-      --radius: 18px;
-      --max: 1100px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --bg:           #f4f0e8;
+      --bg-2:         #ebe5d8;
+      --paper:        #faf7f0;
+      --ink:          #1a1714;
+      --ink-2:        #4a4338;
+      --ink-3:        #8a8170;
+      --rule:         #d9d1bf;
+      --rule-strong:  #b8ad95;
+      --accent:       oklch(46% 0.07 145);
+      --accent-soft:  oklch(46% 0.07 145 / 0.10);
+      --max:          1100px;
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; }
     body {
-      margin: 0;
-      font-family: var(--sans);
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 10% 10%, rgba(255,255,255,0.10), transparent 60%),
-        radial-gradient(900px 600px at 90% 30%, rgba(255,255,255,0.08), transparent 55%),
-        linear-gradient(180deg, #06070a 0%, #0b0c10 40%, #07080b 100%);
-      line-height: 1.45;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-    header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(10,11,16,0.60);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 0;
-      gap: 14px;
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    /* ===== Masthead ===== */
+    .masthead {
+      border-bottom: 1px solid var(--rule-strong);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(6px);
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
     }
     .brand {
-      display: flex; flex-direction: column; gap: 2px;
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
     }
-    .brand strong { letter-spacing: 0.08em; font-size: 13px; text-transform: uppercase; }
-    .brand span { font-size: 12px; color: var(--muted); }
+    .brand-mark {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--accent);
+      position: relative; flex-shrink: 0;
+    }
+    .brand-mark::after {
+      content: ""; position: absolute; inset: 6px;
+      border-radius: 50%; background: var(--bg);
+    }
+    .brand-sub {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-3);
+      display: block;
+      margin-top: 2px;
+    }
     .navlinks {
-      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+      display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
     }
     .pill {
-      padding: 10px 14px;
-      border: 1px solid var(--border);
+      padding: 7px 13px;
+      border: 1px solid var(--rule-strong);
       border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      transition: transform 140ms ease, background 140ms ease;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .pill:hover { transform: translateY(-1px); background: rgba(255,255,255,0.07); color: var(--text); }
-    .cta {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      font-size: 13px;
-      letter-spacing: 0.04em;
+      background: transparent;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      transition: background 140ms ease, color 140ms ease;
     }
-    .cta:hover { background: rgba(255,255,255,0.14); }
-    .hero {
-      padding: 56px 0 28px;
+    .pill:hover { background: var(--ink); color: var(--paper); }
+    .pill.apply-pill {
+      background: var(--accent);
+      color: var(--paper);
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    .pill.apply-pill:hover { background: var(--ink); border-color: var(--ink); }
+
+    /* ===== Container ===== */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+
+    /* ===== Hero ===== */
+    .hero-wrap {
+      border-bottom: 1px solid var(--rule);
+      padding: 64px 40px 0;
+      max-width: var(--max);
+      margin: 0 auto;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-      align-items: stretch;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: end;
     }
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+    .eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin: 0 0 16px;
     }
-    .hero-card {
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .hero-wrap h1 {
+      font-family: "Newsreader", serif;
+      font-weight: 400;
+      font-size: clamp(44px, 6vw, 80px);
+      line-height: 0.97;
+      letter-spacing: -0.025em;
+      margin: 0 0 22px;
+      color: var(--ink);
     }
-    .hero-card .copy { padding: 26px; }
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(34px, 4vw, 54px);
-      letter-spacing: -0.02em;
-      line-height: 1.05;
+    .hero-wrap h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      font-family: "Newsreader", serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink-2);
+      max-width: 56ch;
+      margin: 0 0 22px;
     }
-    .sub {
-      color: var(--muted);
-      font-size: 16px;
-      margin: 0 0 18px;
-      max-width: 65ch;
-    }
-    .meta {
-      display: flex; gap: 10px; flex-wrap: wrap;
-      margin: 0 0 18px;
+    .tags {
+      display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 24px;
     }
     .tag {
-      font-family: var(--mono);
+      font-family: "JetBrains Mono", monospace;
       font-size: 12px;
-      padding: 7px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      color: rgba(255,255,255,0.78);
-      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--rule-strong);
+      color: var(--ink-2);
+      background: var(--paper);
+      letter-spacing: 0.06em;
     }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      transition: transform 140ms ease, background 140ms ease;
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+    .btn-ink {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 11px 20px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 3px;
+      border: 1px solid var(--ink);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-ink:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+    .btn-accent {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 11px 22px;
+      background: var(--accent);
+      color: var(--paper);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 3px;
+      border: 1px solid var(--accent);
+      transition: background 0.15s ease;
       font-weight: 600;
     }
-    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.14); }
-    .btn.secondary { background: transparent; color: var(--text); border-color: var(--border); }
-    .btn.apply-blue {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      border: 1px solid rgba(59, 130, 246, 0.5);
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
-    }
-    .btn.apply-blue:hover {
-      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
-    }
-    .btn.apply-hero {
-      padding: 16px 22px;
-      font-size: 1.1em;
-    }
-    .btn.apply-bottom {
-      padding: 20px 36px;
-      font-size: 1.25em;
-      letter-spacing: 0.04em;
-    }
-    .apply-section {
-      padding: 60px 0;
-      text-align: center;
-    }
-    .apply-section p {
-      color: var(--muted);
-      margin: 0 0 20px;
-      font-size: 16px;
-    }
-    .hero-img {
-      height: 100%;
-      display: grid;
-      place-items: stretch;
-    }
-    .hero-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(1.05) contrast(1.02);
+    .btn-accent:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .btn-accent-lg {
+      padding: 14px 32px;
+      font-size: 13px;
     }
 
-    /* marquee */
-    .marquee {
-      margin: 18px 0 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
+    /* Hero image */
+    .hero-image-wrap {
+      border-radius: 6px 6px 0 0;
       overflow: hidden;
+      border: 1px solid var(--rule-strong);
+      border-bottom: none;
+      height: 420px;
+    }
+    .hero-image-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.95);
+    }
+
+    /* ===== Marquee ===== */
+    .marquee {
+      border-top: 1px solid var(--rule-strong);
+      border-bottom: 1px solid var(--rule);
+      background: var(--bg-2);
+      overflow: hidden;
+      padding: 0;
     }
     .marquee-track {
-      display: flex;
-      gap: 28px;
+      display: flex; gap: 32px;
       padding: 10px 0;
       width: max-content;
-      animation: scroll 18s linear infinite;
+      animation: scroll 22s linear infinite;
       will-change: transform;
     }
     .marquee span {
-      font-family: var(--mono);
-      letter-spacing: 0.16em;
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(255,255,255,0.75);
+      font-size: 11px;
+      color: var(--ink-3);
       white-space: nowrap;
     }
+    .marquee span b { color: var(--accent); font-weight: 500; }
     @keyframes scroll {
       from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      to   { transform: translateX(-50%); }
     }
 
-    section { padding: 44px 0; }
-    .section-title {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 14px;
+    /* ===== Section basics ===== */
+    section { padding: 52px 0; border-bottom: 1px solid var(--rule); }
+    section:last-of-type { border-bottom: none; }
+    .section-head {
+      margin-bottom: 28px;
     }
-    h2 {
+    .section-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin: 0 0 10px;
+    }
+    .section-head h2 {
+      font-family: "Newsreader", serif;
+      font-weight: 500;
+      font-size: clamp(28px, 3vw, 40px);
+      letter-spacing: -0.02em;
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+    .section-hint {
+      font-family: "Newsreader", serif;
+      font-size: 17px;
+      color: var(--ink-2);
       margin: 0;
-      font-size: 22px;
-      letter-spacing: -0.01em;
     }
-    .hint { color: var(--muted); font-size: 14px; }
+
+    /* ===== Cards ===== */
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--rule-strong);
+      border-radius: 6px;
+      padding: 24px 28px;
+    }
     .grid2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 20px;
     }
-    @media (max-width: 900px) {
-      .grid2 { grid-template-columns: 1fr; }
-    }
-    .gallery {
-      background: rgba(255,255,255,0.02);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    .gallery-card {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--card2);
-      min-height: 220px;
-      display: flex;
-      align-items: stretch;
-      isolation: isolate;
-    }
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(1.05);
-      transition: transform 180ms ease;
-    }
-    .gallery-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 35%, rgba(5,6,9,0.75) 100%);
-      opacity: 0.85;
-      transition: opacity 180ms ease;
-      pointer-events: none;
-    }
-    .gallery-card figcaption {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 16px;
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.92);
-      z-index: 2;
-    }
-    .gallery-card:hover img { transform: scale(1.03); }
-    .gallery-card:hover::after { opacity: 0.7; }
-    .card {
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px;
-    }
-    .card header {
-      position: static;
-      backdrop-filter: none;
-      background: transparent;
-      border: 0;
-      padding: 0;
-    }
-    .num {
-      font-family: var(--mono);
-      color: rgba(255,255,255,0.70);
-      letter-spacing: 0.18em;
+    @media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+
+    .card-num {
+      font-family: "JetBrains Mono", monospace;
       font-size: 12px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      color: var(--ink-2);
+      margin: 0 0 6px;
     }
-    .boot-title {
-      margin: 8px 0 10px;
-      font-size: 18px;
-      font-weight: 700;
+    .card-title {
+      font-family: "Newsreader", serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 18px;
+      color: var(--ink);
+      line-height: 1.2;
     }
-    .kv {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin: 10px 0 14px;
-    }
+    .kv { display: flex; flex-direction: column; gap: 8px; margin: 0 0 18px; }
     .kv p {
       margin: 0;
-      color: rgba(255,255,255,0.86);
+      font-size: 15px;
+      color: var(--ink-2);
     }
-    ul, ol { margin: 0 0 0 18px; color: rgba(255,255,255,0.84); }
-    li { margin: 8px 0; }
-    .card .footer {
-      margin-top: 16px;
+    .kv strong { color: var(--ink); }
+    .card-struct-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-2);
+      margin: 0 0 8px;
+    }
+    ol, ul { margin: 0 0 0 18px; padding: 0; color: var(--ink-2); }
+    li { margin: 7px 0; font-size: 15px; line-height: 1.5; }
+    .card-footer {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
     }
-    .small {
-      color: var(--muted);
+    .best-for {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-2);
+    }
+    .cohort-block {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+    }
+    .cohort-label {
+      font-family: "Newsreader", serif;
+      font-size: 16px;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+    .cohort-link {
+      display: block;
+      font-size: 15px;
+      color: var(--ink-2);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-bottom: 6px;
+      transition: color 0.15s ease;
+    }
+    .cohort-link:hover { color: var(--accent); }
+    .cohort-link:last-child { margin-bottom: 0; }
+
+    /* ===== Benefits list ===== */
+    .benefit-list {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .benefit-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 15px; color: var(--ink-2);
+    }
+    .benefit-list li::before {
+      content: "→";
+      font-family: "JetBrains Mono", monospace;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ===== Timeline ===== */
+    .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 19px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: var(--rule-strong);
+    }
+    .tl-item { display: flex; gap: 20px; align-items: flex-start; padding: 16px 0; }
+    .tl-dot {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--rule-strong);
+      background: var(--paper);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--ink-3);
+      position: relative; z-index: 1;
+    }
+    .tl-body { flex: 1; padding-top: 6px; }
+    .tl-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+    .tl-title { font-weight: 600; font-size: 15px; margin: 0 0 4px; color: var(--ink); }
+    .tl-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; }
+
+    /* ===== Eligibility ===== */
+    .elig-stack { display: flex; flex-direction: column; gap: 16px; }
+    .elig-card {
+      background: var(--paper);
+      border: 1px solid var(--rule-strong);
+      border-radius: 6px;
+      padding: 22px 26px;
+    }
+    .elig-card-title { margin: 0 0 4px; font-size: 16px; font-weight: 600; color: var(--ink); font-family: "Newsreader", serif; }
+    .elig-card-sub { font-size: 13px; color: var(--ink-3); margin: 0 0 18px; }
+    .elig-reqs { display: flex; flex-direction: column; gap: 14px; }
+    .elig-req { display: flex; gap: 14px; align-items: flex-start; }
+    .elig-req-icon {
+      flex-shrink: 0; width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 1px solid var(--rule-strong);
+      background: var(--bg-2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; color: var(--ink-3); margin-top: 1px;
+    }
+    .elig-req-body { flex: 1; }
+    .elig-req-body strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 3px; color: var(--ink); }
+    .elig-req-body p { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+    .elig-divider {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--ink-3); font-size: 11px;
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin: 4px 0;
+    }
+    .elig-divider::before, .elig-divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .elig-accordion { display: flex; flex-direction: column; gap: 8px; }
+    details.elig-type {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    details.elig-type[open] { background: var(--paper); border-color: var(--rule-strong); }
+    summary.elig-type-summary {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 14px 18px;
+      cursor: pointer; list-style: none; user-select: none;
+    }
+    summary.elig-type-summary::-webkit-details-marker { display: none; }
+    .elig-type-summary-left { display: flex; flex-direction: column; gap: 2px; }
+    .elig-type-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+    .elig-type-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .elig-type-chevron { font-size: 11px; color: var(--ink-3); transition: transform 180ms ease; flex-shrink: 0; }
+    details.elig-type[open] .elig-type-chevron { transform: rotate(180deg); }
+    .elig-type-body { padding: 0 18px 18px; display: flex; flex-direction: column; gap: 12px; }
+    .elig-sub-section { display: flex; flex-direction: column; gap: 8px; }
+    .elig-sub-req { display: flex; gap: 10px; align-items: flex-start; }
+    .elig-letter { flex-shrink: 0; font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; color: var(--ink-3); padding-top: 2px; min-width: 18px; }
+    .elig-sub-req p { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+    .elig-sub-req ul { margin: 6px 0 0 16px; padding: 0; }
+    .elig-sub-req li { font-size: 13px; color: var(--ink-2); margin: 5px 0; }
+    .elig-note {
+      padding: 14px 18px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      border: 1px solid oklch(46% 0.07 145 / 0.25);
       font-size: 13px;
+      color: var(--ink-2);
     }
-    .contact {
-      background: rgba(255,255,255,0.03);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .elig-note a { color: var(--accent); text-decoration: underline; }
+
+    /* ===== FAQ ===== */
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    details.faq-item {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: var(--paper);
+      overflow: hidden;
+      transition: border-color 140ms ease;
     }
+    details.faq-item[open] { border-color: var(--rule-strong); background: var(--bg); }
+    summary.faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 16px 20px;
+      cursor: pointer; list-style: none; user-select: none;
+      font-size: 15px; font-weight: 600; color: var(--ink);
+      font-family: "Newsreader", serif;
+    }
+    summary.faq-q::-webkit-details-marker { display: none; }
+    .faq-chevron { flex-shrink: 0; font-size: 11px; color: var(--ink-3); transition: transform 180ms ease; }
+    details.faq-item[open] .faq-chevron { transform: rotate(180deg); }
+    .faq-a { padding: 0 20px 18px; font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+    .faq-a p { margin: 0 0 8px; }
+    .faq-a p:last-child { margin-bottom: 0; }
+    .faq-a a { color: var(--accent); text-decoration: underline; }
+
+    /* ===== Contact ===== */
     form {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
+      gap: 14px;
+      margin-top: 20px;
     }
-    @media (max-width: 700px) {
-      form { grid-template-columns: 1fr; }
-    }
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+    @media (max-width: 700px) { form { grid-template-columns: 1fr; } }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
     .form-field.full { grid-column: 1 / -1; }
     .form-field label {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-3);
     }
     input, textarea {
-      width: 100%;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(0,0,0,0.25);
-      color: var(--text);
+      width: 100%; padding: 11px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--rule-strong);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
       outline: none;
       transition: border-color 120ms ease, box-shadow 120ms ease;
     }
     input:focus, textarea:focus {
-      border-color: rgba(255,255,255,0.45);
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
     }
     textarea { min-height: 110px; resize: vertical; }
-    .form-actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-    .form-feedback {
-      grid-column: 1 / -1;
-      min-height: 18px;
-      font-size: 13px;
-      color: var(--muted);
+    .form-actions { grid-column: 1 / -1; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .form-feedback { grid-column: 1 / -1; min-height: 18px; font-size: 13px; color: var(--ink-3); font-family: "JetBrains Mono", monospace; }
+    .form-feedback[data-state="error"] { color: #b91c1c; }
+    .form-feedback[data-state="success"] { color: var(--accent); }
+
+    /* ===== Apply section ===== */
+    .apply-section {
+      text-align: center;
+      padding: 72px 40px;
+      background: var(--bg-2);
     }
-    .form-feedback[data-state="error"] { color: #ffb0b0; }
-    .form-feedback[data-state="success"] { color: #9fe4ff; }
-    footer {
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .footgrid {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+    .apply-section p {
+      font-family: "Newsreader", serif;
+      font-size: 22px;
+      color: var(--ink-2);
+      margin: 0 0 24px;
     }
 
-    /* Timeline */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: relative;
-      margin-top: 4px;
+    /* ===== Gallery card ===== */
+    .gallery-card-inner {
+      display: flex; gap: 32px; align-items: center;
+      flex-wrap: wrap;
     }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 19px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: var(--border);
-    }
-    .tl-item {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 14px 0;
-    }
-    .tl-dot {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      background: var(--card2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: rgba(255,255,255,0.75);
-      position: relative;
-      z-index: 1;
-    }
-    .tl-body { flex: 1; padding-top: 8px; }
-    .tl-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-    .tl-title {
-      font-weight: 700;
-      font-size: 15px;
-      margin: 0 0 4px;
-    }
-    .tl-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      margin: 0;
-    }
-
-    /* Eligibility */
-    .elig-stack { display: flex; flex-direction: column; gap: 18px; }
-    .elig-card {
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px 24px;
-    }
-    .elig-card-title {
-      margin: 0 0 4px;
-      font-size: 16px;
-      font-weight: 700;
-    }
-    .elig-card-sub {
-      font-size: 13px;
-      color: var(--muted);
+    .gallery-card-text { flex: 1; min-width: 220px; }
+    .gallery-card-text p {
+      font-family: "Newsreader", serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink-2);
       margin: 0 0 16px;
     }
-    .elig-reqs { display: flex; flex-direction: column; gap: 12px; }
-    .elig-req {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .elig-req-icon {
+    .gallery-thumb {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.20);
-      background: rgba(255,255,255,0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      margin-top: 1px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      width: 200px;
     }
-    .elig-req-body { flex: 1; }
-    .elig-req-body strong {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 2px;
+    .gallery-thumb img {
+      width: 100%; aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--rule);
+      filter: saturate(0.9);
+      transition: filter 0.2s ease;
     }
-    .elig-req-body p {
-      margin: 0;
-      font-size: 13px;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.5;
-    }
-    .elig-divider {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 6px 0;
-      color: var(--muted);
-      font-size: 12px;
-      font-family: var(--mono);
+    .gallery-thumb img:hover { filter: saturate(1.1); }
+
+    /* ===== Footer ===== */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 28px 40px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 10px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
       letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .elig-divider::before, .elig-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    /* Accordion (details/summary) */
-    .elig-accordion { display: flex; flex-direction: column; gap: 10px; }
-    details.elig-type {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      overflow: hidden;
-    }
-    details.elig-type[open] {
-      background: rgba(255,255,255,0.05);
-    }
-    summary.elig-type-summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 18px;
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-    }
-    summary.elig-type-summary::-webkit-details-marker { display: none; }
-    .elig-type-summary-left { display: flex; flex-direction: column; gap: 2px; }
-    .elig-type-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .elig-type-name {
-      font-size: 15px;
-      font-weight: 700;
-    }
-    .elig-type-chevron {
-      flex-shrink: 0;
-      font-size: 12px;
-      color: var(--muted);
-      transition: transform 180ms ease;
-    }
-    details.elig-type[open] .elig-type-chevron { transform: rotate(180deg); }
-    .elig-type-body {
-      padding: 0 18px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .elig-sub-section { display: flex; flex-direction: column; gap: 8px; }
-    .elig-sub-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .elig-sub-req {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-    .elig-letter {
-      flex-shrink: 0;
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.55);
-      padding-top: 2px;
-      min-width: 18px;
-    }
-    .elig-sub-req p {
-      margin: 0;
-      font-size: 13px;
-      color: rgba(255,255,255,0.80);
-      line-height: 1.55;
-    }
-    .elig-sub-req ul {
-      margin: 6px 0 0 16px;
-      padding: 0;
-    }
-    .elig-sub-req li {
-      font-size: 13px;
-      color: rgba(255,255,255,0.70);
-      margin: 5px 0;
-    }
-    .elig-note {
-      padding: 12px 16px;
-      border-radius: 10px;
-      background: rgba(59,130,246,0.10);
-      border: 1px solid rgba(59,130,246,0.25);
-      font-size: 13px;
-      color: rgba(255,255,255,0.80);
-    }
-    .elig-or-badge {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      background: rgba(255,255,255,0.04);
-      margin: 4px 0;
-      align-self: flex-start;
+      color: var(--ink-3);
     }
 
-    /* FAQ */
-    .faq-list { display: flex; flex-direction: column; gap: 10px; }
-    details.faq-item {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--card);
-      overflow: hidden;
-      transition: background 140ms ease;
+    @media (max-width: 700px) {
+      .masthead { padding: 14px 20px; flex-wrap: wrap; }
+      .container { padding: 0 20px; }
+      .hero-wrap { padding: 40px 20px 0; }
+      .apply-section { padding: 52px 20px; }
+      footer { padding: 20px; flex-direction: column; text-align: center; }
+      .gallery-thumb { display: none; }
     }
-    details.faq-item[open] { background: var(--card2); }
-    summary.faq-q {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 20px;
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-      font-size: 15px;
-      font-weight: 600;
-    }
-    summary.faq-q::-webkit-details-marker { display: none; }
-    .faq-chevron {
-      flex-shrink: 0;
-      font-size: 11px;
-      color: var(--muted);
-      transition: transform 180ms ease;
-    }
-    details.faq-item[open] .faq-chevron { transform: rotate(180deg); }
-    .faq-a {
-      padding: 0 20px 18px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.6;
-    }
-    .faq-a p { margin: 0 0 8px; }
-    .faq-a p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="#top" aria-label="Skill Forward home">
-        <strong>Skill Forward</strong>
-        <span>An Escape With Velocity project</span>
-      </a>
-
-      <nav class="navlinks" aria-label="Primary navigation">
-        <a class="pill" href="#ramp">Ramp</a>
-        <a class="pill" href="#bootcamps">Bootcamps</a>
-        <a class="pill" href="#how">Structure</a>
-        <a class="pill" href="#timeline">Timeline</a>
-        <a class="pill" href="#eligibility">Eligibility</a>
-        <a class="pill" href="#faq">FAQ</a>
-        <a class="pill" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </div>
+<!-- ===== Masthead ===== -->
+<header class="masthead">
+  <a class="brand" href="#top" aria-label="Skill Forward home">
+    <span class="brand-mark"></span>
+    <span>
+      Skill&#8209;Forward
+      <span class="brand-sub">An Escape With Velocity Project</span>
+    </span>
+  </a>
+  <nav class="navlinks" aria-label="Primary navigation">
+    <a class="pill" href="#ramp">Ramp</a>
+    <a class="pill" href="#bootcamps">Bootcamps</a>
+    <a class="pill" href="#how">Structure</a>
+    <a class="pill" href="#timeline">Timeline</a>
+    <a class="pill" href="#eligibility">Eligibility</a>
+    <a class="pill" href="#faq">FAQ</a>
+    <a class="pill" href="#contact">Contact</a>
+    <a class="pill apply-pill" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
+  </nav>
 </header>
 
 <main id="top">
-  <div class="container hero">
-    <div class="hero-grid">
-      <div class="hero-card">
-        <div class="copy">
-          <h1>ACCELERATE ON AI</h1>
-          <p class="sub">
-            Skill Forward is a hands-on, outcomes-driven bootcamp to help you build and ship a personal and/or community solution—using modern AI tools, clear frameworks, and mentorship.
-          </p>
-          <div class="meta">
-            <span class="tag">Project: Personal and/or Community Solution</span>
-            <span class="tag">Deliverables: Public demo + docs + deployed solution</span>
-            <span class="tag">Stipend + paid AI credits on completion</span>
-          </div>
-          <div class="hero-actions">
-            <a class="btn" href="#bootcamps">Explore Bootcamps</a>
-            <a class="btn apply-blue apply-hero" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
-          </div>
-        </div>
 
-        <div class="marquee" aria-hidden="true">
-          <div class="marquee-track" id="mq">
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-            <span>ACCELERATE WITH SKILL FORWARD ✦</span>
-          </div>
+  <!-- ===== Hero ===== -->
+  <div class="hero-wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">— AI Bootcamp · Portland, OR</div>
+        <h1>Accelerate<br>on <em>AI.</em></h1>
+        <p class="hero-sub">
+          Skill Forward is a hands-on, outcomes-driven bootcamp to help you build and ship a personal and/or community solution — using modern AI tools, clear frameworks, and mentorship.
+        </p>
+        <div class="tags">
+          <span class="tag">Project: Personal and/or Community Solution</span>
+          <span class="tag">Deliverables: Public demo + docs + deployed solution</span>
+          <span class="tag">Stipend + paid AI credits on completion</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-ink" href="#bootcamps">Explore Bootcamps</a>
+          <a class="btn-accent" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
         </div>
       </div>
-
-      <div class="hero-card hero-img" aria-label="Skill Forward hero image">
-        <img src="https://static1.squarespace.com/static/695a1379c6b5a73bb1d2d92a/t/695ae53693befa00945cff77/1767564598703/ChatGPT+Image+Oct+9%2C+2025%2C+10_26_47+PM.png?format=1500w" alt="Skill Forward hero image" loading="lazy" referrerpolicy="no-referrer" />
+      <div class="hero-image-wrap">
+        <img
+          src="https://static1.squarespace.com/static/695a1379c6b5a73bb1d2d92a/t/695ae53693befa00945cff77/1767564598703/ChatGPT+Image+Oct+9%2C+2025%2C+10_26_47+PM.png?format=1500w"
+          alt="Escape With Velocity — Skill Forward"
+          loading="eager"
+          referrerpolicy="no-referrer"
+        />
       </div>
     </div>
   </div>
 
-  
+  <!-- ===== Marquee ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="mq">
+      <span>ACCELERATE WITH SKILL FORWARD <b>✦</b></span>
+      <span>BUILD · SHIP · DEPLOY <b>✦</b></span>
+      <span>ESCAPE WITH VELOCITY <b>✦</b></span>
+      <span>AI TOOLS · MENTORSHIP · COMMUNITY <b>✦</b></span>
+      <span>ACCELERATE WITH SKILL FORWARD <b>✦</b></span>
+      <span>BUILD · SHIP · DEPLOY <b>✦</b></span>
+      <span>ESCAPE WITH VELOCITY <b>✦</b></span>
+      <span>AI TOOLS · MENTORSHIP · COMMUNITY <b>✦</b></span>
+    </div>
+  </div>
+
+  <!-- ===== Benefits ===== -->
   <section id="benefits">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
+        <p class="section-eyebrow">— What you gain</p>
         <h2>How Will You Benefit?</h2>
       </div>
-
       <div class="card">
-        <ul>
+        <ul class="benefit-list">
           <li>Development of a Proof of Work Portfolio</li>
           <li>Be able to use AI to perform a variety of tasks (e.g. editing websites, summarizing documents, etc.)</li>
           <li>A basic understanding of the AI tools and how to use them</li>
@@ -734,177 +690,164 @@
     </div>
   </section>
 
-  <section id="gallery" class="gallery">
+  <!-- ===== Picture Gallery ===== -->
+  <section id="gallery">
     <div class="container">
-      <div class="section-title">
-        <h2>Meet the People</h2>
-        <div class="hint">Snapshots of the people and collaborations shaping Skill Forward.</div>
+      <div class="section-head">
+        <p class="section-eyebrow">— The people</p>
+        <h2>Picture Gallery</h2>
       </div>
-
-      <div class="gallery-grid" role="list">
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/upskill1.jpeg" alt="Suresh Srinivas leading a Skill Forward build session." loading="lazy" />
-          <figcaption>Suresh Srinivas</figcaption>
-        </figure>
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/upskill2.jpeg" alt="Suresh and Shashi pairing on a solution." loading="lazy" />
-          <figcaption>Suresh/Shashi</figcaption>
-        </figure>
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/workshop1.jpeg" alt="Escape With Velocity event in full swing." loading="lazy" />
-          <figcaption>Escape With Velocity Event</figcaption>
-        </figure>
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/worksystems.jpeg" alt="Worksystems collaboration planning across a whiteboard." loading="lazy" />
-          <figcaption>Worksystems Collaboration</figcaption>
-        </figure>
+      <div class="card">
+        <div class="gallery-card-inner">
+          <div class="gallery-card-text">
+            <p>Meet the people that made it all happen: The Escape with Velocity Team, The Mentors and the Cohort.</p>
+            <a class="btn-ink" href="picture-gallery.html">View Picture Gallery →</a>
+          </div>
+          <div class="gallery-thumb" aria-hidden="true">
+            <img src="assets/upskill1.jpeg" alt="" loading="lazy" />
+            <img src="assets/upskill2.jpeg" alt="" loading="lazy" />
+            <img src="assets/workshop1.jpeg" alt="" loading="lazy" />
+            <img src="assets/worksystems.jpeg" alt="" loading="lazy" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- ===== Ramp ===== -->
   <section id="ramp">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
+        <p class="section-eyebrow">— Start here</p>
         <h2>Ramp on AI</h2>
-        <div class="hint">Start small, ship fast, and build momentum into the bootcamps.</div>
+        <p class="section-hint">Start small, ship fast, and build momentum into the bootcamps.</p>
       </div>
 
       <div class="grid2">
         <article class="card">
-          <header>
-            <div class="num">R1</div>
-            <div class="boot-title">PROOF OF WORK PORTFOLIO (RAMP)</div>
-          </header>
-
+          <div class="card-num">R1</div>
+          <div class="card-title">Proof of Work Portfolio (RAMP)</div>
           <div class="kv">
-            <p><strong>PROJECT:</strong> BUILD YOUR PROOF OF WORK PORTFOLIO WITH AI TOOLS</p>
-            <p><strong>TIME:</strong> 4 HOURS <span class="small">(plus a 1-hour live session)</span></p>
-            <p><strong>WHAT WE’LL COVER:</strong> INTRODUCTION TO AI TOOLS, PROMPTS TO GET STARTED</p>
+            <p><strong>Project:</strong> Build your Proof of Work Portfolio with AI tools</p>
+            <p><strong>Time:</strong> 4 hours <span style="color:var(--ink-3)">(plus a 1-hour live session)</span></p>
+            <p><strong>What we'll cover:</strong> Introduction to AI tools, prompts to get started</p>
           </div>
-
-          <p class="small"><strong>STRUCTURE</strong></p>
+          <p class="card-struct-label">Structure</p>
           <ol>
             <li>1 × 1-hour live virtual session</li>
             <li>4 hours of independent work</li>
             <li>AI credits on completion of your Proof Of Work Portfolio</li>
           </ol>
-
-          <div class="footer">
-            <span class="small">Best for: beginners who want a portfolio artifact quickly</span>
-            <a class="btn secondary" href="gallery/" style="font-size:13px; padding:8px 14px;">View Cohort Gallery →</a>
+          <div class="card-footer">
+            <span class="best-for">Best for: beginners who want a portfolio artifact quickly</span>
+            <div class="cohort-block">
+              <p class="cohort-label">May 2026 Cohort</p>
+              <a class="cohort-link" href="slides-and-resources.html">Slides and Resources →</a>
+              <a class="cohort-link" href="gallery/">Check out the Portfolios of the Cohort →</a>
+              <a class="cohort-link" href="testimonials.html">Testimonials →</a>
+            </div>
           </div>
         </article>
 
         <article class="card">
-          <header>
-            <div class="num">R2</div>
-            <div class="boot-title">IDEA TO REALITY (10 HR RAMP)</div>
-          </header>
-
+          <div class="card-num">R2</div>
+          <div class="card-title">Idea to Reality (10 HR RAMP)</div>
           <div class="kv">
-            <p><strong>PROJECT:</strong> IDEA TO REALITY</p>
-            <p><strong>TIME:</strong> 10 HOURS</p>
-            <p><strong>LESSONS:</strong> ONE 90 MINUTE LESSON</p>
-            <p><strong>WHAT WE’LL COVER:</strong> SPOTTING MIGRAINE PROBLEMS, AI TOOLS, VIBE CODING SOLUTIONS</p>
+            <p><strong>Project:</strong> Idea to Reality</p>
+            <p><strong>Time:</strong> 10 hours</p>
+            <p><strong>Lessons:</strong> One 90-minute lesson</p>
+            <p><strong>What we'll cover:</strong> Spotting migraine problems, AI tools, vibe coding solutions</p>
           </div>
-
-          <p class="small"><strong>STRUCTURE</strong></p>
+          <p class="card-struct-label">Structure</p>
           <ol>
             <li>1 × 1.5-hour live virtual session</li>
-            <li>8.5 hours of guided independent work <span class="small">(with Mentor Office Hours)</span></li>
+            <li>8.5 hours of guided independent work <span style="color:var(--ink-3)">(with Mentor Office Hours)</span></li>
+            <li>Create your own project idea, Update this Skill Forward site, Create a <a href="https://portfolio-flash.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">Portfolio Generator</a> or <a href="https://skill-forward-portfolio-roaster.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">Critique app</a>, or create a <a href="https://skill-forward-vibe-coding-for-good.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">Code for Good generator app</a> for nonprofit organization needs</li>
             <li>AI credits on deployment of solution</li>
           </ol>
-
-          <div class="footer">
-            <span class="small">Best for: learners ready to go from use-case to deployed solution</span>
+          <div class="card-footer">
+            <span class="best-for">Best for: learners ready to go from use-case to deployed solution</span>
+            <a class="btn-ink" href="assets/idea-to-reality-r2-20260430.pdf" target="_blank" rel="noopener">View Course Slides (PDF) →</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-
+  <!-- ===== Bootcamps ===== -->
   <section id="bootcamps">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
+        <p class="section-eyebrow">— Go deeper</p>
         <h2>Bootcamps</h2>
-        <div class="hint">Two tracks (20 hours or 40 hours). Same outcome: ship something real.</div>
+        <p class="section-hint">Two tracks (20 hours or 40 hours). Same outcome: ship something real.</p>
       </div>
 
       <div class="grid2">
         <article class="card">
-          <header>
-            <div class="num">01</div>
-            <div class="boot-title">2 WEEK AI BOOTCAMP (20 hours)</div>
-          </header>
-
+          <div class="card-num">01</div>
+          <div class="card-title">2 Week AI Bootcamp (20 hours)</div>
           <div class="kv">
             <p><strong>Project:</strong> Personal and/or Community Solution</p>
             <p><strong>Time:</strong> 20 hours</p>
-            <p><strong>What we’ll cover:</strong> Frameworks, AI tools, existing ideas/problems</p>
+            <p><strong>What we'll cover:</strong> Frameworks, AI tools, existing ideas/problems</p>
           </div>
-
-          <p class="small"><strong>Structure</strong></p>
+          <p class="card-struct-label">Structure</p>
           <ol>
             <li>TWO × 1.5-hour live virtual session</li>
             <li>FOUR 1-hour mentoring</li>
             <li>16 hours of independent work</li>
             <li>Certificate, Stipend on Completion and AI credits on completion of: (a) Public Loom/YouTube video (b) Public documentation (c) Deployed solution</li>
           </ol>
-
-          <div class="footer">
-            <span class="small">Best for: fast prototype + quick validation</span>
+          <div class="card-footer">
+            <span class="best-for">Best for: fast prototype + quick validation</span>
           </div>
         </article>
 
         <article class="card">
-          <header>
-            <div class="num">02</div>
-            <div class="boot-title">4 WEEK AI BOOTCAMP (40 hours)</div>
-          </header>
-
+          <div class="card-num">02</div>
+          <div class="card-title">4 Week AI Bootcamp (40 hours)</div>
           <div class="kv">
             <p><strong>Project:</strong> Personal and/or Community Solution</p>
             <p><strong>Time:</strong> 40 hours</p>
-            <p><strong>What we’ll cover:</strong> Frameworks, AI tools, existing ideas/problems</p>
+            <p><strong>What we'll cover:</strong> Frameworks, AI tools, existing ideas/problems</p>
           </div>
-
-          <p class="small"><strong>Structure</strong></p>
+          <p class="card-struct-label">Structure</p>
           <ol>
             <li>4 × 1-hour live virtual sessions</li>
             <li>6 hours of guided mentoring/office hours</li>
             <li>30 hours of independent group work</li>
             <li>Stipend on Completion, AI credits on completion of: (a) Public Loom/YouTube video (b) Public documentation (c) Deployed solution</li>
           </ol>
-
-          <div class="footer">
-            <span class="small">Best for: deeper build + stronger portfolio asset</span>
+          <div class="card-footer">
+            <span class="best-for">Best for: deeper build + stronger portfolio asset</span>
           </div>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- ===== How it works ===== -->
   <section id="how">
     <div class="container">
-      <div class="section-title">
-        <h2>How it works</h2>
-        <div class="hint">A simple loop: choose a problem → build → demo → document → deploy.</div>
+      <div class="section-head">
+        <p class="section-eyebrow">— The process</p>
+        <h2>How it Works</h2>
+        <p class="section-hint">A simple loop: choose a problem → build → demo → document → deploy.</p>
       </div>
-
       <div class="grid2">
         <div class="card">
-          <h3 style="margin:0 0 8px; font-size:16px;">What you’ll leave with</h3>
-          <ul>
-            <li>A deployed solution (even if “small”)</li>
+          <p class="card-struct-label" style="margin-bottom:14px;">What you'll leave with</p>
+          <ul class="benefit-list">
+            <li>A deployed solution (even if "small")</li>
             <li>Public demo video (Loom/YouTube)</li>
             <li>Public documentation (write-up + links)</li>
             <li>Certificate + stipend + AI credits (upon completion)</li>
           </ul>
         </div>
         <div class="card">
-          <h3 style="margin:0 0 8px; font-size:16px;">What we emphasize</h3>
-          <ul>
+          <p class="card-struct-label" style="margin-bottom:14px;">What we emphasize</p>
+          <ul class="benefit-list">
             <li>Practical frameworks (prompting, evaluation, iteration)</li>
             <li>Tooling literacy (LLMs, automation, basic deployment)</li>
             <li>Portfolio-ready artifacts</li>
@@ -915,13 +858,14 @@
     </div>
   </section>
 
+  <!-- ===== Timeline ===== -->
   <section id="timeline">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
+        <p class="section-eyebrow">— The journey</p>
         <h2>Program Timeline</h2>
-        <div class="hint">From application to deployment — here's how the journey unfolds.</div>
+        <p class="section-hint">From application to deployment — here's how the journey unfolds.</p>
       </div>
-
       <div class="card">
         <div class="timeline">
           <div class="tl-item">
@@ -977,20 +921,19 @@
     </div>
   </section>
 
+  <!-- ===== Eligibility ===== -->
   <section id="eligibility">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
+        <p class="section-eyebrow">— Who can apply</p>
         <h2>Eligibility Requirements</h2>
-        <div class="hint">This program is funded through a Dislocated Worker grant. All applicants must meet the base requirements and qualify under one dislocation type.</div>
+        <p class="section-hint">This program is funded through a Dislocated Worker grant. All applicants must meet the base requirements and qualify under one dislocation type.</p>
       </div>
 
       <div class="elig-stack">
-
-        <!-- Base requirements -->
         <div class="elig-card">
           <p class="elig-card-title">Base Requirements</p>
           <p class="elig-card-sub">All of the following must be met by every applicant.</p>
-
           <div class="elig-reqs">
             <div class="elig-req">
               <div class="elig-req-icon">1</div>
@@ -1003,7 +946,7 @@
               <div class="elig-req-icon">2</div>
               <div class="elig-req-body">
                 <strong>Selective Service Compliance</strong>
-                <p>Required if you were assigned male at birth, are a U.S. citizen or immigrant residing in the U.S., are between ages 18–25, and were born after January 1, 1960. Registration status is verified through <a href="https://www.sss.gov/verify/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.85);text-decoration:underline;">sss.gov/verify</a>.</p>
+                <p>Required if you were assigned male at birth, are a U.S. citizen or immigrant residing in the U.S., are between ages 18–25, and were born after January 1, 1960. Registration status is verified through <a href="https://www.sss.gov/verify/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">sss.gov/verify</a>.</p>
               </div>
             </div>
             <div class="elig-req">
@@ -1016,14 +959,11 @@
           </div>
         </div>
 
-        <!-- Dislocation type -->
         <div class="elig-card">
           <p class="elig-card-title">Dislocation Type</p>
           <p class="elig-card-sub">Applicants must qualify under <strong>one</strong> of the following dislocation types. Eligibility is confirmed by participant attestation.</p>
 
           <div class="elig-accordion">
-
-            <!-- Type 1 -->
             <details class="elig-type">
               <summary class="elig-type-summary">
                 <div class="elig-type-summary-left">
@@ -1033,8 +973,7 @@
                 <span class="elig-type-chevron">▼</span>
               </summary>
               <div class="elig-type-body">
-                <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.70);">Must meet <strong>all three</strong> of the following requirements (A, B, and C):</p>
-
+                <p style="margin:0;font-size:13px;color:var(--ink-3);">Must meet <strong>all three</strong> of the following requirements (A, B, and C):</p>
                 <div class="elig-sub-section">
                   <div class="elig-sub-req">
                     <span class="elig-letter">A.</span>
@@ -1064,7 +1003,6 @@
 
             <div class="elig-divider">or</div>
 
-            <!-- Type 2 -->
             <details class="elig-type">
               <summary class="elig-type-summary">
                 <div class="elig-type-summary-left">
@@ -1074,8 +1012,7 @@
                 <span class="elig-type-chevron">▼</span>
               </summary>
               <div class="elig-type-body">
-                <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.70);">Must meet <strong>one</strong> of the following requirements (A or B):</p>
-
+                <p style="margin:0;font-size:13px;color:var(--ink-3);">Must meet <strong>one</strong> of the following requirements (A or B):</p>
                 <div class="elig-sub-section">
                   <div class="elig-sub-req">
                     <span class="elig-letter">A.</span>
@@ -1088,26 +1025,25 @@
                 </div>
               </div>
             </details>
-
           </div>
         </div>
 
         <div class="elig-note">
-          Not sure if you qualify? <a href="#contact" style="color:rgba(255,255,255,0.90);text-decoration:underline;">Contact us</a> — our team can help walk you through the requirements before you apply.
+          Not sure if you qualify? <a href="#contact">Contact us</a> — our team can help walk you through the requirements before you apply.
         </div>
-
       </div>
     </div>
   </section>
 
-  <section id="benefits">
+  <!-- ===== Benefits (second) ===== -->
+  <section id="benefits-2">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
+        <p class="section-eyebrow">— What you gain</p>
         <h2>How Will You Benefit?</h2>
       </div>
-
       <div class="card">
-        <ul>
+        <ul class="benefit-list">
           <li>Development of a Proof of Work Portfolio</li>
           <li>Be able to use AI to perform a variety of tasks (e.g. editing websites, summarizing documents, etc.)</li>
           <li>A basic understanding of the AI tools and how to use them</li>
@@ -1117,15 +1053,15 @@
     </div>
   </section>
 
+  <!-- ===== FAQ ===== -->
   <section id="faq">
     <div class="container">
-      <div class="section-title">
+      <div class="section-head">
+        <p class="section-eyebrow">— Common questions</p>
         <h2>Frequently Asked Questions</h2>
-        <div class="hint">Common questions about eligibility and how the program works.</div>
+        <p class="section-hint">Common questions about eligibility and how the program works.</p>
       </div>
-
       <div class="faq-list">
-
         <details class="faq-item">
           <summary class="faq-q">
             I was a Dislocated Worker but I currently have a job — am I still eligible?
@@ -1143,7 +1079,7 @@
           </summary>
           <div class="faq-a">
             <p>Selective Service registration is a federal requirement — separate from having a valid ID and work authorization — that applies to a specific group of people. You are required to register if you were assigned male at birth, are a U.S. citizen or immigrant residing in the U.S., are between ages 18–25, and were born after January 1, 1960.</p>
-            <p>If that applies to you, your registration status will be verified through <a href="https://www.sss.gov/verify/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.85);text-decoration:underline;">sss.gov/verify</a>. If it does not apply to you, no action is needed on your part.</p>
+            <p>If that applies to you, your registration status will be verified through <a href="https://www.sss.gov/verify/" target="_blank" rel="noopener">sss.gov/verify</a>. If it does not apply to you, no action is needed on your part.</p>
           </div>
         </details>
 
@@ -1167,22 +1103,18 @@
             <p>You can attend just one program — or all of them. Each offering (Ramp, 2-Week Bootcamp, 4-Week Bootcamp) is enrolled separately, so you choose what fits your schedule and goals. There is no requirement to commit to multiple programs at once.</p>
           </div>
         </details>
-
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <!-- ===== Contact ===== -->
+  <section id="contact">
     <div class="container">
-      <div class="section-title">
-        <h2>Still have questions? <em style="font-weight:600;">let’s chat</em>.</h2>
-        <div class="hint">Send a note here, or apply directly if you’re ready.</div>
+      <div class="section-head">
+        <p class="section-eyebrow">— Get in touch</p>
+        <h2>Still have questions? <em style="font-style:italic;">Let's chat.</em></h2>
+        <p class="section-hint">Send a note here, or apply directly if you're ready.</p>
       </div>
-
-      <!--
-        This lightweight form uses mailto so the page stays "single-file" without a backend.
-        If you prefer, replace with an embedded Google Form iframe.
-      -->
       <form id="contactForm">
         <div class="form-field">
           <label for="contact-name">Your name</label>
@@ -1198,46 +1130,40 @@
         </div>
         <p class="form-feedback" id="contactFeedback" role="status" aria-live="polite"></p>
         <div class="form-actions">
-          <button class="btn" type="submit">Open Email Draft</button>
-          <span class="small">This will open your default email client.</span>
+          <button class="btn-ink" type="submit">Open Email Draft</button>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:0.08em;">This will open your default email client.</span>
         </div>
       </form>
     </div>
   </section>
 
-  <section class="apply-section">
-    <div class="container">
-      <p>Ready to accelerate your skills with AI?</p>
-      <a class="btn apply-blue apply-bottom" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
-    </div>
-  </section>
+  <!-- ===== Apply CTA ===== -->
+  <div class="apply-section">
+    <p>Ready to accelerate your skills with AI?</p>
+    <a class="btn-accent btn-accent-lg" href="https://forms.gle/ptUyrQhBrufd4LkZA" target="_blank" rel="noopener">Apply Now ➺</a>
+  </div>
 
-  <footer>
-    <div class="container">
-      <div class="footgrid">
-        <span>© 2026 Skill Forward — Escape With Velocity</span>
-        <span>Built as a lightweight single-page version of the Squarespace export.</span>
-      </div>
-    </div>
-  </footer>
 </main>
 
+<footer>
+  <span>© 2026 Skill Forward — Escape With Velocity</span>
+  <span>An AI Bootcamp · Portland Community College</span>
+</footer>
+
 <script>
-  // Duplicate marquee content to create seamless scroll
   (function() {
     const track = document.getElementById('mq');
     if (!track) return;
     track.innerHTML = track.innerHTML + track.innerHTML;
   })();
 
-  // Mailto contact form
   const contactForm = document.getElementById('contactForm');
   const contactFeedback = document.getElementById('contactFeedback');
 
-  function setContactFeedback(message, state = 'info') {
+  function setContactFeedback(message, state) {
     if (!contactFeedback) return;
     contactFeedback.textContent = message;
-    contactFeedback.dataset.state = state;
+    contactFeedback.dataset.state = state || 'info';
   }
 
   contactForm?.addEventListener('submit', function(e) {
@@ -1246,22 +1172,17 @@
       setContactFeedback('Please complete every required field.', 'error');
       return;
     }
-
     const fd = new FormData(contactForm);
-    const name = (fd.get('name') || '').toString().trim();
-    const email = (fd.get('email') || '').toString().trim();
-    const msg = (fd.get('message') || '').toString().trim();
-
+    const name  = (fd.get('name')    || '').toString().trim();
+    const email = (fd.get('email')   || '').toString().trim();
+    const msg   = (fd.get('message') || '').toString().trim();
     const subject = encodeURIComponent('Skill Forward — Question' + (name ? (' from ' + name) : ''));
-    const body = encodeURIComponent(
-      (name ? ('Name: ' + name + '\n') : '') +
+    const body    = encodeURIComponent(
+      (name  ? ('Name: '  + name  + '\n') : '') +
       (email ? ('Email: ' + email + '\n\n') : '') +
       (msg || '')
     );
-
-    // TODO: Replace with your preferred inbox
     const to = encodeURIComponent('ssuresh.srinivas@gmail.com');
-
     setContactFeedback('Opening an email draft...', 'success');
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
   });
