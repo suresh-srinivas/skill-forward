@@ -223,53 +223,6 @@
     @media (max-width: 900px) {
       .grid2 { grid-template-columns: 1fr; }
     }
-    .gallery {
-      background: rgba(255,255,255,0.02);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    .gallery-card {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--card2);
-      min-height: 220px;
-      display: flex;
-      align-items: stretch;
-      isolation: isolate;
-    }
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(1.05);
-      transition: transform 180ms ease;
-    }
-    .gallery-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 35%, rgba(5,6,9,0.75) 100%);
-      opacity: 0.85;
-      transition: opacity 180ms ease;
-      pointer-events: none;
-    }
-    .gallery-card figcaption {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 16px;
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.92);
-      z-index: 2;
-    }
-    .gallery-card:hover img { transform: scale(1.03); }
-    .gallery-card:hover::after { opacity: 0.7; }
     .card {
       border: 1px solid var(--border);
       background: var(--card);
@@ -734,30 +687,14 @@
     </div>
   </section>
 
-  <section id="gallery" class="gallery">
+  <section id="gallery">
     <div class="container">
       <div class="section-title">
-        <h2>Meet the People</h2>
-        <div class="hint">Snapshots of the people and collaborations shaping Skill Forward.</div>
+        <h2>Picture Gallery</h2>
       </div>
-
-      <div class="gallery-grid" role="list">
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/upskill1.jpeg" alt="Suresh Srinivas leading a Skill Forward build session." loading="lazy" />
-          <figcaption>Suresh Srinivas</figcaption>
-        </figure>
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/upskill2.jpeg" alt="Suresh and Shashi pairing on a solution." loading="lazy" />
-          <figcaption>Suresh/Shashi</figcaption>
-        </figure>
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/workshop1.jpeg" alt="Escape With Velocity event in full swing." loading="lazy" />
-          <figcaption>Escape With Velocity Event</figcaption>
-        </figure>
-        <figure class="gallery-card" role="listitem">
-          <img src="assets/worksystems.jpeg" alt="Worksystems collaboration planning across a whiteboard." loading="lazy" />
-          <figcaption>Worksystems Collaboration</figcaption>
-        </figure>
+      <div class="card">
+        <p style="margin: 0 0 14px; font-size: 16px; color: rgba(255,255,255,0.84); line-height: 1.6;">Meet the people that made it all happen: The Escape with Velocity Team, The Mentors and the Cohort.</p>
+        <a href="picture-gallery.html" style="font-size: 15px; color: rgba(255,255,255,0.90); text-decoration: underline; text-underline-offset: 3px;">View Picture Gallery →</a>
       </div>
     </div>
   </section>
