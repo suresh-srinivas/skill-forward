@@ -176,32 +176,33 @@ transition: transform 200ms ease, filter 200ms ease;
 }
 .photo-card:hover img { transform: scale(1.03); filter: saturate(1.05); }
 
-/* Bootcamp photo grid — wider columns, landscape aspect ratio */
-.photo-grid-bootcamp {
+/* Bootcamp gallery — 2-col grid, labels above, no cropping */
+.bootcamp-gallery {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 16px;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 28px;
 margin-bottom: 48px;
 }
-.photo-grid-bootcamp .photo-card {
-min-height: 0;
-aspect-ratio: 4 / 3;
-flex-direction: column;
-}
-.photo-grid-bootcamp .photo-card img {
-flex: 1;
-min-height: 0;
-}
-figcaption {
+.bootcamp-item {}
+.bootcamp-item .bootcamp-label {
 font-family: "JetBrains Mono", monospace;
-font-size: 11px;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 0.12em;
 color: var(--ink-3);
-padding: 8px 10px;
-background: var(--bg-2);
-border-bottom: 1px solid var(--rule);
+margin: 0 0 10px;
 line-height: 1.4;
-flex-shrink: 0;
 }
+.bootcamp-item img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 6px;
+border: 1px solid var(--rule-strong);
+filter: saturate(0.95);
+transition: filter 200ms ease;
+}
+.bootcamp-item:hover img { filter: saturate(1.05); }
 
 /* Bottom nav */
 .bottom-nav {
@@ -355,57 +356,47 @@ footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
 <!-- ============================================================ -->
 <p class="section-label" style="margin-top: 52px;">Skill Forward 2 Week AI Bootcamp (20 hours) In Person Events</p>
 
-<div class="photo-grid-bootcamp">
-<figure class="photo-card">
-<figcaption>Voice of Customer Insights — Guest Speaker: Vera Sell (PSU School of Business)</figcaption>
+<div class="bootcamp-gallery">
+<div class="bootcamp-item">
+<p class="bootcamp-label">Voice of Customer Insights — Guest Speaker: Vera Sell (PSU School of Business)</p>
 <img src="assets/bootcamp-event-01-vera-sell-voc.jpg" alt="Voice of Customer Insights — Guest Speaker: Vera Sell (PSU School of Business)" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>Cohort During a Course Presentation</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">Cohort During a Course Presentation</p>
 <img src="assets/bootcamp-event-02-cohort-course-presentation.jpg" alt="Cohort During a Course Presentation" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>Cohort Engaging with Course Presentation</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">Cohort Engaging with Course Presentation</p>
 <img src="assets/bootcamp-event-03-cohort-engaging-presentation.jpg" alt="Cohort Engaging with Course Presentation" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>Cohort Engaging with a Course Presentation</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">Cohort Engaging with a Course Presentation</p>
 <img src="assets/bootcamp-event-04-cohort-engaging-presentation-2.jpg" alt="Cohort Engaging with a Course Presentation" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>Cohort Student Presentation</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">Cohort Student Presentation</p>
 <img src="assets/bootcamp-event-05-cohort-student-presentation.jpg" alt="Cohort Student Presentation" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>Cohort At Work on Projects</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">Cohort At Work on Projects</p>
 <img src="assets/bootcamp-event-06-cohort-at-work-projects.jpg" alt="Cohort At Work on Projects" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>Cohort at Work on 60 Second Pitches</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">Cohort at Work on 60 Second Pitches</p>
 <img src="assets/bootcamp-event-07-cohort-60-second-pitches.jpg" alt="Cohort at Work on 60 Second Pitches" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>2 Week AI Bootcamp Cohort</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">2 Week AI Bootcamp Cohort</p>
 <img src="assets/bootcamp-event-08-cohort.jpg" alt="2 Week AI Bootcamp Cohort" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>May 2026 Cohort</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">May 2026 Cohort</p>
 <img src="assets/bootcamp-event-09-may-2026-cohort.jpg" alt="May 2026 Cohort" loading="lazy" />
-
-</figure>
-<figure class="photo-card">
-<figcaption>May 2026 Cohort Having Fun</figcaption>
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">May 2026 Cohort Having Fun</p>
 <img src="assets/bootcamp-event-10-cohort-having-fun.jpg" alt="May 2026 Cohort Having Fun" loading="lazy" />
-
-</figure>
+</div>
 </div>
 
 </section>
