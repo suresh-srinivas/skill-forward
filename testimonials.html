@@ -1,330 +1,476 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Testimonials — Skill Forward</title>
-  <meta name="description" content="What participants say about the Skill Forward RAMP cohort." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f4f0e8;
-      --bg-2: #ebe5d8;
-      --ink: #1a1714;
-      --ink-2: #4a4338;
-      --ink-3: #8a8170;
-      --rule: #d9d1bf;
-      --rule-strong: #b8ad95;
-      --accent: oklch(46% 0.07 145);
-      --accent-soft: oklch(46% 0.07 145 / 0.08);
-      --paper: #faf7f0;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Testimonials — Skill Forward</title>
+<meta name="description" content="What participants say about the Skill Forward RAMP cohort." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #f4f0e8;
+--bg-2: #ebe5d8;
+--ink: #1a1714;
+--ink-2: #4a4338;
+--ink-3: #8a8170;
+--rule: #d9d1bf;
+--rule-strong: #b8ad95;
+--accent: oklch(46% 0.07 145);
+--accent-soft: oklch(46% 0.07 145 / 0.08);
+--paper: #faf7f0;
+}
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      min-height: 100vh;
-    }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+background: var(--bg);
+color: var(--ink);
+font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+font-size: 16px;
+line-height: 1.55;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+min-height: 100vh;
+}
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); }
 
-    a { color: var(--ink); text-decoration: none; }
-    a:hover { color: var(--accent); }
+.masthead {
+border-bottom: 1px solid var(--rule-strong);
+padding: 22px 40px 18px;
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+gap: 24px;
+position: sticky;
+top: 0;
+z-index: 5;
+backdrop-filter: blur(6px);
+background: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+.brand {
+font-family: "Newsreader", Georgia, serif;
+font-weight: 500;
+font-size: 22px;
+letter-spacing: -0.01em;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.brand-mark {
+width: 22px; height: 22px; border-radius: 50%;
+background: var(--accent);
+position: relative;
+}
+.brand-mark::after {
+content: ""; position: absolute; inset: 6px;
+border-radius: 50%; background: var(--bg);
+}
+.nav-links {
+display: flex; gap: 20px;
+font-family: "JetBrains Mono", ui-monospace, monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--ink-3);
+align-items: center;
+}
+.nav-links a { color: var(--ink-3); }
+.nav-links a:hover { color: var(--accent); }
+.back-btn {
+padding: 7px 16px;
+border: 1px solid var(--rule-strong);
+border-radius: 3px;
+background: var(--ink);
+color: var(--paper) !important;
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+transition: background 0.15s ease;
+}
+.back-btn:hover { background: var(--accent) !important; color: var(--paper) !important; }
 
-    /* Masthead */
-    .masthead {
-      border-bottom: 1px solid var(--rule-strong);
-      padding: 22px 40px 18px;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 24px;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      backdrop-filter: blur(6px);
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-    }
-    .brand {
-      font-family: "Newsreader", Georgia, serif;
-      font-weight: 500;
-      font-size: 22px;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .brand-mark {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--accent);
-      position: relative;
-    }
-    .brand-mark::after {
-      content: ""; position: absolute; inset: 6px;
-      border-radius: 50%; background: var(--bg);
-    }
-    .nav-links {
-      display: flex; gap: 20px;
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-3);
-      align-items: center;
-    }
-    .nav-links a { color: var(--ink-3); }
-    .nav-links a:hover { color: var(--accent); }
-    .back-btn {
-      padding: 7px 16px;
-      border: 1px solid var(--rule-strong);
-      border-radius: 3px;
-      background: var(--ink);
-      color: var(--paper) !important;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: background 0.15s ease;
-    }
-    .back-btn:hover { background: var(--accent) !important; color: var(--paper) !important; }
+.hero {
+padding: 72px 40px 52px;
+max-width: 860px;
+margin: 0 auto;
+border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.14em;
+color: var(--accent);
+margin-bottom: 18px;
+}
+.hero h1 {
+font-family: "Newsreader", serif;
+font-weight: 400;
+font-size: clamp(40px, 6vw, 72px);
+line-height: 1.0;
+letter-spacing: -0.025em;
+margin: 0 0 18px;
+}
+.hero .lede {
+font-family: "Newsreader", serif;
+font-size: 18px;
+line-height: 1.5;
+color: var(--ink-2);
+max-width: 56ch;
+}
 
-    /* Hero */
-    .hero {
-      padding: 72px 40px 52px;
-      max-width: 860px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--rule);
-    }
-    .eyebrow {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      font-family: "Newsreader", serif;
-      font-weight: 400;
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 1.0;
-      letter-spacing: -0.025em;
-      margin: 0 0 18px;
-    }
-    .hero .lede {
-      font-family: "Newsreader", serif;
-      font-size: 18px;
-      line-height: 1.5;
-      color: var(--ink-2);
-      max-width: 56ch;
-    }
+.testimonials {
+max-width: 860px;
+margin: 0 auto;
+padding: 0 40px 80px;
+}
 
-    /* Testimonials */
-    .testimonials {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 40px 80px;
-    }
-    .testimonial-item {
-      padding: 32px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    .testimonial-name {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin: 0 0 12px;
-    }
-    .testimonial-quote {
-      font-family: "Newsreader", serif;
-      font-size: 19px;
-      line-height: 1.55;
-      color: var(--ink-2);
-      margin: 0;
-      font-style: italic;
-    }
-    .testimonial-quote::before { content: '\201C'; }
-    .testimonial-quote::after  { content: '\201D'; }
+.section-divider {
+font-family: "Newsreader", serif;
+font-size: 24px;
+font-weight: 500;
+color: var(--ink);
+padding: 40px 0 20px;
+border-bottom: 2px solid var(--rule-strong);
+margin-bottom: 0;
+}
+.section-divider span {
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.14em;
+color: var(--accent);
+display: block;
+margin-bottom: 8px;
+}
 
-    /* Bottom nav */
-    .bottom-nav {
-      padding: 0 40px 52px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
+.testimonial-item {
+padding: 32px 0;
+border-bottom: 1px solid var(--rule);
+}
+.testimonial-name {
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.14em;
+color: var(--accent);
+margin: 0 0 12px;
+}
+.testimonial-quote {
+font-family: "Newsreader", serif;
+font-size: 19px;
+line-height: 1.55;
+color: var(--ink-2);
+margin: 0;
+font-style: italic;
+white-space: pre-line;
+}
+.testimonial-quote::before { content: '\201C'; }
+.testimonial-quote::after { content: '\201D'; }
 
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 28px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--ink-3);
-    }
+.bottom-nav {
+padding: 0 40px 52px;
+max-width: 860px;
+margin: 0 auto;
+}
+footer {
+border-top: 1px solid var(--rule);
+padding: 28px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-family: "JetBrains Mono", monospace;
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: var(--ink-3);
+}
 
-    @media (max-width: 700px) {
-      .masthead { padding: 16px 20px; flex-wrap: wrap; }
-      .hero { padding: 48px 20px 36px; }
-      .testimonials { padding: 0 20px 60px; }
-      .bottom-nav { padding: 0 20px 40px; }
-      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
-    }
-  </style>
+@media (max-width: 700px) {
+.masthead { padding: 16px 20px; flex-wrap: wrap; }
+.hero { padding: 48px 20px 36px; }
+.testimonials { padding: 0 20px 60px; }
+.bottom-nav { padding: 0 20px 40px; }
+footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
 </head>
 <body>
 
 <header class="masthead">
-  <div class="brand">
-    <span class="brand-mark"></span>
-    <span>Skill&#8209;Forward</span>
-  </div>
-  <nav class="nav-links">
-    <a href="gallery/">Cohort Gallery</a>
-    <a href="slides-and-resources.html">Slides &amp; Resources</a>
-    <a href="index.html" class="back-btn">← Back to Home</a>
-  </nav>
+<div class="brand">
+<span class="brand-mark"></span>
+<span>Skill&#8209;Forward</span>
+</div>
+<nav class="nav-links">
+<a href="gallery/">Cohort Gallery</a>
+<a href="slides-and-resources.html">Slides &amp; Resources</a>
+<a href="index.html" class="back-btn">← Back to Home</a>
+</nav>
 </header>
 
 <div class="hero">
-  <div class="eyebrow">— May 2026 Cohort</div>
-  <h1>Testimonials</h1>
-  <p class="lede">What participants say about the Skill Forward RAMP cohort.</p>
+<div class="eyebrow">— May 2026 Cohort</div>
+<h1>Testimonials</h1>
+<p class="lede">What participants say about the Skill Forward RAMP and Idea to Reality cohorts.</p>
 </div>
 
 <section class="testimonials">
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Mary Killelea</p>
-    <p class="testimonial-quote">The Skill-Forward program is a real asset for professionals looking to upskill and learn AI. The supportive, structured environment gave me the community and guidance I was looking for. Before the program, I had never used Lovable or GitHub, and I'm grateful to have been part of the initial cohort where I could learn those skills and make new connections. The program offers tremendous value for both students and the broader community.</p>
-  </div>
+<!-- ===== R1: Proof of Work Portfolio ===== -->
+<div class="section-divider">
+<span>— R1 · Proof of Work Portfolio (RAMP)</span>
+May 2026 Cohort
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Pedro I Hernández</p>
-    <p class="testimonial-quote">Through Skill-Forward with Suresh Srinivas and the cohort that started April 27 in Portland, OR, I acquired an asset that marks a significant milestone in my personal and professional development. This achievement lays the groundwork for continuous learning and highlights my commitment to delivering value to others while striving for self-improvement with each new engagement. Looking forward to what comes next!</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Mary Killelea</p>
+<p class="testimonial-quote">The Skill-Forward program is a real asset for professionals looking to upskill and learn AI. The supportive, structured environment gave me the community and guidance I was looking for. Before the program, I had never used Lovable or GitHub, and I'm grateful to have been part of the initial cohort where I could learn those skills and make new connections. The program offers tremendous value for both students and the broader community.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Priya Limaye</p>
-    <p class="testimonial-quote">As a developer, I was skeptical about how much a 5-hour AI cohort could change my workflow. I was wrong. SkillForward pushed me to stop 'over-engineering' and start 'co-creating' with AI. It's fundamentally changed how I view the speed of development.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Pedro I Hernández</p>
+<p class="testimonial-quote">Through Skill-Forward with Suresh Srinivas and the cohort that started April 27 in Portland, OR, I acquired an asset that marks a significant milestone in my personal and professional development. This achievement lays the groundwork for continuous learning and highlights my commitment to delivering value to others while striving for self-improvement with each new engagement. Looking forward to what comes next!</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Anusha Suntheram</p>
-    <p class="testimonial-quote">Skill-Forward is so helpful. It provides time and space to upskill. I'm excited to keep learning and adding projects to my portfolio. It's also great to learn in real time from the other students. I hope there are more cohorts so others can also participate and further their skillset.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Priya Limaye</p>
+<p class="testimonial-quote">As a developer, I was skeptical about how much a 5-hour AI cohort could change my workflow. I was wrong. SkillForward pushed me to stop 'over-engineering' and start 'co-creating' with AI. It's fundamentally changed how I view the speed of development.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Kris Rodden</p>
-    <p class="testimonial-quote">The Skill-Forward program provided a good introduction to available AI tools with a cohort, and guided me through how to create a portfolio site — helpful for my job-search process.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Anusha Suntheram</p>
+<p class="testimonial-quote">Skill-Forward is so helpful. It provides time and space to upskill. I'm excited to keep learning and adding projects to my portfolio. It's also great to learn in real time from the other students. I hope there are more cohorts so others can also participate and further their skillset.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Susan Chow</p>
-    <p class="testimonial-quote">Skill-Forward is an awesome program supporting Oregonians. Very thankful for the funding and effort of the Skill-Forward team.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Kris Rodden</p>
+<p class="testimonial-quote">The Skill-Forward program provided a good introduction to available AI tools with a cohort, and guided me through how to create a portfolio site — helpful for my job-search process.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Michael Moore</p>
-    <p class="testimonial-quote">Skill Forward gave me a structured way to turn ideas into portfolio-ready projects using AI tools. Instead of just talking about AI, the program focused on applying it: identifying problems, building solutions, and presenting the work clearly alongside a resume. That proof-of-work mindset is exactly what job seekers need as hiring shifts toward demonstrated capability.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Susan Chow</p>
+<p class="testimonial-quote">Skill-Forward is an awesome program supporting Oregonians. Very thankful for the funding and effort of the Skill-Forward team.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Mike Karras</p>
-    <p class="testimonial-quote">Skill-Forward was time well spent. Suresh brings valuable information, skill-building and advice. I'm glad I came.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Michael Moore</p>
+<p class="testimonial-quote">Skill Forward gave me a structured way to turn ideas into portfolio-ready projects using AI tools. Instead of just talking about AI, the program focused on applying it: identifying problems, building solutions, and presenting the work clearly alongside a resume. That proof-of-work mindset is exactly what job seekers need as hiring shifts toward demonstrated capability.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Pallavi Kadam</p>
-    <p class="testimonial-quote">The Skill Forward sessions have been extremely engaging and valuable, both for self-development and for preparing for today's job market. The roadmap is thoughtfully structured to provide hands-on learning while also helping participants understand current AI trends and practical applications. I especially appreciate how the sessions balance learning, experimentation, and real-world relevance, making the entire experience motivating and insightful. Grateful to the mentor for creating such an interactive and well-organized learning journey.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Mike Karras</p>
+<p class="testimonial-quote">Skill-Forward was time well spent. Suresh brings valuable information, skill-building and advice. I'm glad I came.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Jon Beam</p>
-    <p class="testimonial-quote">Great opportunity to learn without being overwhelmed with jargon or complexities. Able to apply learnings to real life problems beyond theoretical use cases.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Pallavi Kadam</p>
+<p class="testimonial-quote">The Skill Forward sessions have been extremely engaging and valuable, both for self-development and for preparing for today's job market. The roadmap is thoughtfully structured to provide hands-on learning while also helping participants understand current AI trends and practical applications. I especially appreciate how the sessions balance learning, experimentation, and real-world relevance, making the entire experience motivating and insightful. Grateful to the mentor for creating such an interactive and well-organized learning journey.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Tuan Doan</p>
-    <p class="testimonial-quote">Learning with folks in similar situations. This gives me encouragement to continue on my learning path.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Jon Beam</p>
+<p class="testimonial-quote">Great opportunity to learn without being overwhelmed with jargon or complexities. Able to apply learnings to real life problems beyond theoretical use cases.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Kenyon Acton</p>
-    <p class="testimonial-quote">Skill-Forward provides a supportive and inspiring format for building technical skills alongside critical thinking, leadership, and creativity. The portfolio-based projects facilitate hands-on learning, encourage skill sharing, and produce shareable learning achievements. I've enjoyed talking with potential employers about the projects, and I love seeing workflows evolve as AI opens up new solutions to existing issues. Thank you for this opportunity to advance my technical skills and grow toward data work that makes a difference in communities.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Tuan Doan</p>
+<p class="testimonial-quote">Learning with folks in similar situations. This gives me encouragement to continue on my learning path.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Srikathyayani Srikanteswara</p>
-    <p class="testimonial-quote">They say teaching is the best form of learning, and I fully experienced it during my time mentoring people creating their portfolios. It was so much fun jointly troubleshooting and diagnosing problems and experiencing the joy when it all works! Big kudos to Suresh for organizing such a wonderful program — I feel privileged to be part of this journey. The invited speakers were the cherry on top.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Kenyon Acton</p>
+<p class="testimonial-quote">Skill-Forward provides a supportive and inspiring format for building technical skills alongside critical thinking, leadership, and creativity. The portfolio-based projects facilitate hands-on learning, encourage skill sharing, and produce shareable learning achievements. I've enjoyed talking with potential employers about the projects, and I love seeing workflows evolve as AI opens up new solutions to existing issues. Thank you for this opportunity to advance my technical skills and grow toward data work that makes a difference in communities.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Sunitha Narayanan</p>
-    <p class="testimonial-quote">The Skill-Forward RAMP program is a practical 'fast-track' for technology or business professionals who want to translate years of experience into the current market. In just a few sessions, I was able to take my background in technical leadership and turn it into a tangible portfolio. The program moves past the theory — Suresh walked us through specific tools to build real-world artifacts that actually demonstrate value in the AI era. Beyond the technical work, it was great to be in a room with other professionals in similar career transitions. I'm looking forward to the next part of the program!</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Srikathyayani Srikanteswara</p>
+<p class="testimonial-quote">They say teaching is the best form of learning, and I fully experienced it during my time mentoring people creating their portfolios. It was so much fun jointly troubleshooting and diagnosing problems and experiencing the joy when it all works! Big kudos to Suresh for organizing such a wonderful program — I feel privileged to be part of this journey. The invited speakers were the cherry on top.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Kristopher Mahdak</p>
-    <p class="testimonial-quote">Will provide after completion of 40-hour bootcamp.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Sunitha Narayanan</p>
+<p class="testimonial-quote">The Skill-Forward RAMP program is a practical 'fast-track' for technology or business professionals who want to translate years of experience into the current market. In just a few sessions, I was able to take my background in technical leadership and turn it into a tangible portfolio. The program moves past the theory — Suresh walked us through specific tools to build real-world artifacts that actually demonstrate value in the AI era. Beyond the technical work, it was great to be in a room with other professionals in similar career transitions. I'm looking forward to the next part of the program!</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Sirisha Malladi</p>
-    <p class="testimonial-quote">The Skill-Forward cohort made me more comfortable experimenting with AI tools. I used to see AI as something I had to deal with — almost like a necessary evil — and would often shy away from it. Learning alongside people from varied backgrounds helped shift that perspective. It's now something I'm much more open to exploring, and I feel more confident using AI in a practical, hands-on way. It's been a supportive environment to learn, experiment, and build confidence.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Kristopher Mahdak</p>
+<p class="testimonial-quote">Will provide after completion of 40-hour bootcamp.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Khalid Abughazaleh</p>
-    <p class="testimonial-quote">Thank you.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Sirisha Malladi</p>
+<p class="testimonial-quote">The Skill-Forward cohort made me more comfortable experimenting with AI tools. I used to see AI as something I had to deal with — almost like a necessary evil — and would often shy away from it. Learning alongside people from varied backgrounds helped shift that perspective. It's now something I'm much more open to exploring, and I feel more confident using AI in a practical, hands-on way. It's been a supportive environment to learn, experiment, and build confidence.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Supriya Shanbhag</p>
-    <p class="testimonial-quote">Suresh did an awesome job of establishing a clear framework and very doable, creative activities that enabled me to learn the use of AI and develop a curiosity about its applications in my work.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Khalid Abughazaleh</p>
+<p class="testimonial-quote">Thank you.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Aji Fatou Dibba</p>
-    <p class="testimonial-quote">Highly will recommend Skill-Forward for anyone interested in AI.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Supriya Shanbhag</p>
+<p class="testimonial-quote">Suresh did an awesome job of establishing a clear framework and very doable, creative activities that enabled me to learn the use of AI and develop a curiosity about its applications in my work.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Aprajita Shukla</p>
-    <p class="testimonial-quote">Skill-Forward changed how I think about AI. In a world that won't look away from it, this program taught me how to use it to my advantage. I built a full portfolio in a matter of hours, learned from a brilliant cohort of participants, and walked away from Shashi and Andrea's sessions with knowledge I couldn't have gained any other way. My growth in a single week felt like 5x — and I know I'm only getting started. Sincere thanks to Suresh and the team at PCC for opening this door.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Aji Fatou Dibba</p>
+<p class="testimonial-quote">Highly will recommend Skill-Forward for anyone interested in AI.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Shaila Mudigonda</p>
-    <p class="testimonial-quote">Skill Forward has created something truly special — a space where people looking for work can come together, learn together, and grow together. What started as a community has become a movement. Through conversations, hands-on projects, and real collaboration, we're not just learning AI — we're building confidence, capability, and momentum. For many of us, Skill Forward has been the bridge between uncertainty and opportunity. Skill Forward isn't just teaching skills. It's helping people believe in what's possible again.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Aprajita Shukla</p>
+<p class="testimonial-quote">Skill-Forward changed how I think about AI. In a world that won't look away from it, this program taught me how to use it to my advantage. I built a full portfolio in a matter of hours, learned from a brilliant cohort of participants, and walked away from Shashi and Andrea's sessions with knowledge I couldn't have gained any other way. My growth in a single week felt like 5x — and I know I'm only getting started. Sincere thanks to Suresh and the team at PCC for opening this door.</p>
+</div>
 
-  <div class="testimonial-item">
-    <p class="testimonial-name">Corinne Nakashima</p>
-    <p class="testimonial-quote">This will help develop your confidence in basic AI tool skills — with a supportive, friendly community as well.</p>
-  </div>
+<div class="testimonial-item">
+<p class="testimonial-name">Shaila Mudigonda</p>
+<p class="testimonial-quote">Skill Forward has created something truly special — a space where people looking for work can come together, learn together, and grow together. What started as a community has become a movement. Through conversations, hands-on projects, and real collaboration, we're not just learning AI — we're building confidence, capability, and momentum. For many of us, Skill Forward has been the bridge between uncertainty and opportunity. Skill Forward isn't just teaching skills. It's helping people believe in what's possible again.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Corinne Nakashima</p>
+<p class="testimonial-quote">This will help develop your confidence in basic AI tool skills — with a supportive, friendly community as well.</p>
+</div>
+
+<!-- ===== R2: Idea to Reality ===== -->
+<div class="section-divider" style="margin-top: 20px;">
+<span>— R2 · Idea to Reality (10 HR RAMP)</span>
+May 2026 Cohort
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Pedro Hernandez</p>
+<p class="testimonial-quote">Last week I had the opportunity to join the new in-person program, Skill Forward Cohort 1 in Portland, OR, with Suresh Srinivas, and I feel really lucky for it.
+
+I'm walking away with tangible AI assets, a new approach to building my professional portfolio, and fresh momentum to keep learning.
+
+A few highlights:
+· Insightful guest speakers, including Shashi Jain and Andrea Gerson
+· Hands-on time to build and leave with real, usable AI deliverables
+· The best part: meeting and networking with people who share a passion for learning and self-improvement
+
+Thanks to Suresh and the support team for this valuable experience.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Susan Chow</p>
+<p class="testimonial-quote">I participated in the Proof of Work Portfolio and Idea to Reality camps. In less than 2 weeks, I learnt so much more than I could on my own. My cohort was of all skill levels, supportive and brimming with ideas. I am looking forward to creating and collaborating with my new found community.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Sunitha Narayanan</p>
+<p class="testimonial-quote">The Ramp provided a great environment to bridge my enterprise leadership experience with hands-on product development. I arrived with a specific problem already in mind, and the PURCS framework offered a valuable new lens to refine that vision into a structured solution. The group cohort connections were invaluable, finding a community of peers navigating similar technical shifts provided a level of validation and collaborative energy that is rare in a week-long program.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Sirisha Malladi</p>
+<p class="testimonial-quote">Skill Forward helped me become much more comfortable experimenting with AI tools through hands-on learning and actually building projects instead of just hearing about AI conceptually.
+
+One of the most valuable parts of the experience was learning alongside people from varied professional and technical backgrounds. Seeing what others built, how differently people approached problem-solving, and learning together made AI feel much more approachable and practical.
+
+Before the cohort, I honestly viewed AI more as something I needed to catch up on and was hesitant to experiment deeply with. The program helped shift that mindset from uncertainty to curiosity and hands-on experimentation.
+
+Building and shipping Roastfolio during the cohort gave me confidence that even without being deeply technical in the AI development space, I could still prototype, iterate, and create something useful using AI-assisted tools.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Priya Limaye</p>
+<p class="testimonial-quote">It has been an incredible experience. The 10-hour constraint for the 'Idea to reality' forced me to prioritize core functionality. It has been very satisfying to see PosturePolice come to life so quickly.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Kristopher Mahdak</p>
+<p class="testimonial-quote">Nice overview of available tools with examples.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Shaila Mudigonda</p>
+<p class="testimonial-quote">Excellent, supportive and very helpful team.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Pallavi Kadam</p>
+<p class="testimonial-quote">The Skill Forward sessions have been extremely engaging and valuable, both for self-development and for preparing for today's job market. The roadmap is thoughtfully structured to provide hands-on learning while also helping participants understand current AI trends and practical applications. I especially appreciate how the sessions balance learning, experimentation, and real-world relevance, making the entire experience motivating and insightful. Grateful to the mentor for creating such an interactive and well-organized learning journey.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Jon Beam</p>
+<p class="testimonial-quote">The PURCS framework and presentation used in the classes was very helpful in keeping focus on the real problem that the project needed to address. It will be one I continue to use going forward.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Mary Killelea</p>
+<p class="testimonial-quote">One of my biggest takeaways was that working through prompts and strategy in Claude first can save a lot of time, cost, and missteps later in Lovable. I also learned how important it is to clearly define your goals and constraints upfront, especially around performance, quality, efficiency, and user experience.
+
+Overall, SkillsForward was a great experience. The combination of community support through Discord, hands-on learning, and practical AI application made the experience both challenging and incredibly rewarding.
+
+I highly recommend this program to anyone who has a growth mindset. There is something new for everyone to learn regardless of your AI knowledge and experience.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Srikathyayani Srikanteswara</p>
+<p class="testimonial-quote">Personally, it was a great experience collaborating on GitHub and making sure the merges and commits are done correctly. The instruction was very useful — especially about how to identify a problem especially if you want to make money from it. Working in a cohort where there are others going through the same journey was also very useful.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Kenyon Acton</p>
+<p class="testimonial-quote">Learning about PURCS and working with various projects has been a great learning experience. I pivoted to a personal project, and got to build something I have been interested in building for a long time.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Aprajita Shukla</p>
+<p class="testimonial-quote">This program connected me with people from completely different backgrounds — and through those connections, I found a collaborator who shares the same passion for my project. I'd been searching for the right person to build this idea with for a long time, so that alone made it worthwhile.
+On top of that, the talks Suresh organized were genuinely insightful and gave me a new perspective on what we were building. He created an environment where you could develop real skills and leave with the momentum to actually make things happen.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Mike Karras</p>
+<p class="testimonial-quote">I'm definitely learning new skills and it feels great to be collaborating with someone else on a project. Not only did I get some new AI skills, but some new cloud deployment skills too.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Michael Moore</p>
+<p class="testimonial-quote">The Skill Forward approach appealed to me immediately. In fact, I started building my AI-forward proof-of-work portfolio while I was still waiting for the program to begin.
+
+Since then, I've built three projects and significantly improved my portfolio page. Those projects helped attract employers looking for AI-ready candidates, and I received an offer that will return me to work before finishing the Skill Forward program.
+
+I appreciated the chance to network with peers and learn from visiting speakers on product development, entrepreneurial strategy, and resume positioning. Overall, Skill Forward helped me translate my process engineering and data-driven manufacturing background into a stronger AI-forward portfolio, positioning me as an applied engineer ready to build practical AI-enabled solutions.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Kris Rodden</p>
+<p class="testimonial-quote">A free, local program exposing participants to a wealth of training resources is invaluable and I enjoyed my experience with my cohort and have much appreciation for all of the mentors involved. I recommend it for any other tech professionals in career transition.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Supriya Shanbhag</p>
+<p class="testimonial-quote">I am enjoying learning all these tools and Suresh is making this class very interesting and applied knowledge.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Tuan Doan</p>
+<p class="testimonial-quote">It is good to have a group of people to encourage you to keep going. I see people working on projects and that helps keep momentum strong.</p>
+</div>
+
+<div class="testimonial-item">
+<p class="testimonial-name">Corinne Cameron Nakashima</p>
+<p class="testimonial-quote">Thank you for the community and moral support for what we are trying to accomplish.</p>
+</div>
 
 </section>
 
 <div class="bottom-nav">
-  <a href="index.html" style="display:inline-flex; align-items:center; gap:6px; padding:11px 20px; background:var(--ink); color:var(--paper); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; border-radius:3px; text-decoration:none; transition:background 0.15s ease;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">← Back to Home</a>
+<a href="index.html" style="display:inline-flex; align-items:center; gap:6px; padding:11px 20px; background:var(--ink); color:var(--paper); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; border-radius:3px; text-decoration:none; transition:background 0.15s ease;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">← Back to Home</a>
 </div>
 
 <footer>
-  <span>Skill-Forward · May 2026 Cohort</span>
-  <span>© 2026 · Escape With Velocity</span>
+<span>Skill-Forward · Testimonials</span>
+<span>© 2026 · Escape With Velocity</span>
 </footer>
 
 </body>
