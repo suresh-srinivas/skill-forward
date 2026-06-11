@@ -1,337 +1,413 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Picture Gallery — Skill Forward</title>
-  <meta name="description" content="Meet the people that made it all happen: The Escape with Velocity Team, The Mentors and the Cohort." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f4f0e8;
-      --bg-2: #ebe5d8;
-      --ink: #1a1714;
-      --ink-2: #4a4338;
-      --ink-3: #8a8170;
-      --rule: #d9d1bf;
-      --rule-strong: #b8ad95;
-      --accent: oklch(46% 0.07 145);
-      --accent-soft: oklch(46% 0.07 145 / 0.08);
-      --paper: #faf7f0;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Picture Gallery — Skill Forward</title>
+<meta name="description" content="Meet the people that made it all happen: The Escape with Velocity Team, The Mentors and the Cohort." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #f4f0e8;
+--bg-2: #ebe5d8;
+--ink: #1a1714;
+--ink-2: #4a4338;
+--ink-3: #8a8170;
+--rule: #d9d1bf;
+--rule-strong: #b8ad95;
+--accent: oklch(46% 0.07 145);
+--accent-soft: oklch(46% 0.07 145 / 0.08);
+--paper: #faf7f0;
+}
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      min-height: 100vh;
-    }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+background: var(--bg);
+color: var(--ink);
+font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+font-size: 16px;
+line-height: 1.55;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+min-height: 100vh;
+}
 
-    a { color: var(--ink); text-decoration: none; }
-    a:hover { color: var(--accent); }
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); }
 
-    /* Masthead */
-    .masthead {
-      border-bottom: 1px solid var(--rule-strong);
-      padding: 22px 40px 18px;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 24px;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      backdrop-filter: blur(6px);
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-    }
-    .brand {
-      font-family: "Newsreader", Georgia, serif;
-      font-weight: 500;
-      font-size: 22px;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .brand-mark {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--accent);
-      position: relative;
-    }
-    .brand-mark::after {
-      content: ""; position: absolute; inset: 6px;
-      border-radius: 50%; background: var(--bg);
-    }
-    .nav-links {
-      display: flex; gap: 20px;
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-3);
-      align-items: center;
-    }
-    .nav-links a { color: var(--ink-3); }
-    .nav-links a:hover { color: var(--accent); }
-    .back-btn {
-      padding: 7px 16px;
-      border: 1px solid var(--rule-strong);
-      border-radius: 3px;
-      background: var(--ink);
-      color: var(--paper) !important;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: background 0.15s ease;
-    }
-    .back-btn:hover { background: var(--accent) !important; color: var(--paper) !important; }
+/* Masthead */
+.masthead {
+border-bottom: 1px solid var(--rule-strong);
+padding: 22px 40px 18px;
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+gap: 24px;
+position: sticky;
+top: 0;
+z-index: 5;
+backdrop-filter: blur(6px);
+background: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+.brand {
+font-family: "Newsreader", Georgia, serif;
+font-weight: 500;
+font-size: 22px;
+letter-spacing: -0.01em;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.brand-mark {
+width: 22px; height: 22px; border-radius: 50%;
+background: var(--accent);
+position: relative;
+}
+.brand-mark::after {
+content: ""; position: absolute; inset: 6px;
+border-radius: 50%; background: var(--bg);
+}
+.nav-links {
+display: flex; gap: 20px;
+font-family: "JetBrains Mono", ui-monospace, monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--ink-3);
+align-items: center;
+}
+.nav-links a { color: var(--ink-3); }
+.nav-links a:hover { color: var(--accent); }
+.back-btn {
+padding: 7px 16px;
+border: 1px solid var(--rule-strong);
+border-radius: 3px;
+background: var(--ink);
+color: var(--paper) !important;
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+transition: background 0.15s ease;
+}
+.back-btn:hover { background: var(--accent) !important; color: var(--paper) !important; }
 
-    /* Hero */
-    .hero {
-      padding: 72px 40px 52px;
-      max-width: 1000px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--rule);
-    }
-    .eyebrow {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      font-family: "Newsreader", serif;
-      font-weight: 400;
-      font-size: clamp(36px, 5vw, 64px);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      margin: 0 0 18px;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .hero .lede {
-      font-family: "Newsreader", serif;
-      font-size: 18px;
-      line-height: 1.5;
-      color: var(--ink-2);
-      max-width: 60ch;
-    }
+/* Hero */
+.hero {
+padding: 72px 40px 52px;
+max-width: 1000px;
+margin: 0 auto;
+border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.14em;
+color: var(--accent);
+margin-bottom: 18px;
+}
+.hero h1 {
+font-family: "Newsreader", serif;
+font-weight: 400;
+font-size: clamp(36px, 5vw, 64px);
+line-height: 1.05;
+letter-spacing: -0.025em;
+margin: 0 0 18px;
+}
+.hero h1 em {
+font-style: italic;
+color: var(--accent);
+}
+.hero .lede {
+font-family: "Newsreader", serif;
+font-size: 18px;
+line-height: 1.5;
+color: var(--ink-2);
+max-width: 60ch;
+}
 
-    /* Content area */
-    .content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 52px 40px 80px;
-    }
+/* Content area */
+.content {
+max-width: 1000px;
+margin: 0 auto;
+padding: 52px 40px 80px;
+}
 
-    /* Section heading */
-    .section-label {
-      font-family: "Newsreader", serif;
-      font-size: 28px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin: 0 0 28px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--rule);
-    }
+/* Section heading */
+.section-label {
+font-family: "Newsreader", serif;
+font-size: 28px;
+font-weight: 500;
+letter-spacing: -0.01em;
+color: var(--ink);
+margin: 0 0 28px;
+padding-bottom: 14px;
+border-bottom: 1px solid var(--rule);
+}
 
-    /* Photo grid */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .photo-card {
-      position: relative;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid var(--rule-strong);
-      background: var(--bg-2);
-      min-height: 220px;
-      display: flex;
-      align-items: stretch;
-    }
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(0.95);
-      transition: transform 200ms ease, filter 200ms ease;
-    }
-    .photo-card:hover img { transform: scale(1.03); filter: saturate(1.05); }
+/* Photo grid — original, unchanged */
+.photo-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 16px;
+margin-bottom: 48px;
+}
+.photo-card {
+position: relative;
+border-radius: 6px;
+overflow: hidden;
+border: 1px solid var(--rule-strong);
+background: var(--bg-2);
+min-height: 220px;
+display: flex;
+align-items: stretch;
+}
+.photo-card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+filter: saturate(0.95);
+transition: transform 200ms ease, filter 200ms ease;
+}
+.photo-card:hover img { transform: scale(1.03); filter: saturate(1.05); }
 
-    /* Bottom nav */
-    .bottom-nav {
-      padding: 0 40px 52px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+/* Bootcamp gallery — 2-col grid, labels above, no cropping */
+.bootcamp-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 28px;
+margin-bottom: 48px;
+}
+.bootcamp-item {}
+.bootcamp-item .bootcamp-label, p.bootcamp-label {
+font-family: "JetBrains Mono", monospace;
+font-size: 17px;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+color: var(--ink-3);
+margin: 0 0 12px;
+line-height: 1.4;
+}
+.bootcamp-item img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 6px;
+border: 1px solid var(--rule-strong);
+filter: saturate(0.95);
+transition: filter 200ms ease;
+}
+.bootcamp-item:hover img { filter: saturate(1.05); }
 
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 28px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--ink-3);
-    }
+/* Bottom nav */
+.bottom-nav {
+padding: 0 40px 52px;
+max-width: 1000px;
+margin: 0 auto;
+}
 
-    @media (max-width: 700px) {
-      .masthead { padding: 16px 20px; flex-wrap: wrap; }
-      .hero { padding: 48px 20px 36px; }
-      .content { padding: 36px 20px 60px; }
-      .bottom-nav { padding: 0 20px 40px; }
-      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
-    }
-  </style>
+footer {
+border-bottom: 1px solid var(--rule);
+padding: 28px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-family: "JetBrains Mono", monospace;
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: var(--ink-3);
+}
+
+@media (max-width: 700px) {
+.masthead { padding: 16px 20px; flex-wrap: wrap; }
+.hero { padding: 48px 20px 36px; }
+.content { padding: 36px 20px 60px; }
+.bottom-nav { padding: 0 20px 40px; }
+footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
 </head>
 <body>
 
 <header class="masthead">
-  <div class="brand">
-    <span class="brand-mark"></span>
-    <span>Skill&#8209;Forward</span>
-  </div>
-  <nav class="nav-links">
-    <a href="gallery/">Cohort Gallery</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="index.html" class="back-btn">← Back to Home</a>
-  </nav>
+<div class="brand">
+<span class="brand-mark"></span>
+<span>Skill&#8209;Forward</span>
+</div>
+<nav class="nav-links">
+<a href="gallery/">Cohort Gallery</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="index.html" class="back-btn">← Back to Home</a>
+</nav>
 </header>
 
 <div class="hero">
-  <div class="eyebrow">— The People Behind It All</div>
-  <h1>Picture Gallery.<br><em>Meet the people that made it all happen.</em></h1>
-  <p class="lede">The Escape with Velocity Team, The Mentors, and the Cohort — the faces and collaborations shaping Skill Forward.</p>
+<div class="eyebrow">— The People Behind It All</div>
+<h1>Picture Gallery.<br><em>Meet the people that made it all happen.</em></h1>
+<p class="lede">The Escape with Velocity Team, The Mentors, and the Cohort — the faces and collaborations shaping Skill Forward.</p>
 </div>
 
 <section class="content">
 
-  <p class="section-label">Meet the Founders</p>
+<p class="section-label">Meet the Founders</p>
 
-  <div class="photo-grid">
-    <figure class="photo-card">
-      <img src="assets/upskill1.jpeg" alt="Suresh Srinivas leading a Skill Forward build session." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/upskill2.jpeg" alt="Suresh and Shashi pairing on a solution." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/workshop1.jpeg" alt="Escape With Velocity event in full swing." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/worksystems.jpeg" alt="Worksystems collaboration planning across a whiteboard." loading="lazy" />
-    </figure>
-  </div>
+<div class="photo-grid">
+<figure class="photo-card">
+<img src="assets/upskill1.jpeg" alt="Suresh Srinivas leading a Skill Forward build session." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/upskill2.jpeg" alt="Suresh and Shashi pairing on a solution." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/workshop1.jpeg" alt="Escape With Velocity event in full swing." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/worksystems.jpeg" alt="Worksystems collaboration planning across a whiteboard." loading="lazy" />
+</figure>
+</div>
 
-  <p class="section-label" style="margin-top: 52px;">Skill Forward R1 and R2 In Person Events</p>
+<p class="section-label" style="margin-top: 52px;">Skill Forward R1 and R2 In Person Events</p>
 
-  <!-- Suresh's Lectures -->
-  <p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Suresh's Lectures on Building with AI</p>
-  <div class="photo-grid" style="margin-bottom: 36px;">
-    <figure class="photo-card">
-      <img src="assets/EVent-01.jpg" alt="Suresh's lecture on building with AI." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/event-02.jpg" alt="Suresh's lecture on building with AI." loading="lazy" />
-    </figure>
-  </div>
+<!-- Suresh's Lectures -->
+<p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Suresh's Lectures on Building with AI</p>
+<div class="photo-grid" style="margin-bottom: 36px;">
+<figure class="photo-card">
+<img src="assets/EVent-01.jpg" alt="Suresh's lecture on building with AI." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/event-02.jpg" alt="Suresh's lecture on building with AI." loading="lazy" />
+</figure>
+</div>
 
-  <!-- Students discussing ideas -->
-  <p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Students Discussing Ideas in Teams</p>
-  <div class="photo-grid" style="margin-bottom: 36px;">
-    <figure class="photo-card">
-      <img src="assets/event-03.jpg" alt="Students discussing ideas in teams." loading="lazy" />
-    </figure>
-  </div>
+<!-- Students discussing ideas -->
+<p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Students Discussing Ideas in Teams</p>
+<div class="photo-grid" style="margin-bottom: 36px;">
+<figure class="photo-card">
+<img src="assets/event-03.jpg" alt="Students discussing ideas in teams." loading="lazy" />
+</figure>
+</div>
 
-  <!-- Shashi Jain's Lecture -->
-  <p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Shashi Jain's Lecture on "How to Identify a Migraine Problem"</p>
-  <div class="photo-grid" style="margin-bottom: 36px;">
-    <figure class="photo-card">
-      <img src="assets/event-04.jpg" alt="Shashi Jain's lecture on how to identify a migraine problem." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/event-05.jpg" alt="Shashi Jain's lecture on how to identify a migraine problem." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/event-07.jpg" alt="Shashi Jain's lecture on how to identify a migraine problem." loading="lazy" />
-    </figure>
-  </div>
+<!-- Shashi Jain's Lecture -->
+<p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Shashi Jain's Lecture on "How to Identify a Migraine Problem"</p>
+<div class="photo-grid" style="margin-bottom: 36px;">
+<figure class="photo-card">
+<img src="assets/event-04.jpg" alt="Shashi Jain's lecture on how to identify a migraine problem." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/event-05.jpg" alt="Shashi Jain's lecture on how to identify a migraine problem." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/event-07.jpg" alt="Shashi Jain's lecture on how to identify a migraine problem." loading="lazy" />
+</figure>
+</div>
 
-  <!-- PURCS Framework -->
-  <p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">The PURCS Framework: Painful, Urgent, Repeatable, Costly and Specific</p>
-  <div class="photo-grid" style="margin-bottom: 36px;">
-    <figure class="photo-card">
-      <img src="assets/event-09.jpg" alt="The PURCS Framework: Painful, Urgent, Repeatable, Costly and Specific." loading="lazy" />
-    </figure>
-  </div>
+<!-- PURCS Framework -->
+<p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">The PURCS Framework: Painful, Urgent, Repeatable, Costly and Specific</p>
+<div class="photo-grid" style="margin-bottom: 36px;">
+<figure class="photo-card">
+<img src="assets/event-09.jpg" alt="The PURCS Framework: Painful, Urgent, Repeatable, Costly and Specific." loading="lazy" />
+</figure>
+</div>
 
-  <!-- Andrea Gerson -->
-  <p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Andrea Gerson's Amazing Talk on How to Write a Resume</p>
-  <div class="photo-grid" style="margin-bottom: 36px;">
-    <figure class="photo-card">
-      <img src="assets/event-15.jpg" alt="Andrea Gerson's talk on how to write a resume." loading="lazy" />
-    </figure>
-  </div>
+<!-- Andrea Gerson -->
+<p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">Andrea Gerson's Amazing Talk on How to Write a Resume</p>
+<div class="photo-grid" style="margin-bottom: 36px;">
+<figure class="photo-card">
+<img src="assets/event-15.jpg" alt="Andrea Gerson's talk on how to write a resume." loading="lazy" />
+</figure>
+</div>
 
-  <!-- Cohort working -->
-  <p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">The Cohort Working Hard and Having Fun</p>
-  <div class="photo-grid" style="margin-bottom: 36px;">
-    <figure class="photo-card">
-      <img src="assets/event-16.jpg" alt="The cohort working hard and having fun." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/event-18.jpg" alt="The cohort working hard and having fun." loading="lazy" />
-    </figure>
-  </div>
+<!-- Cohort working -->
+<p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">The Cohort Working Hard and Having Fun</p>
+<div class="photo-grid" style="margin-bottom: 36px;">
+<figure class="photo-card">
+<img src="assets/event-16.jpg" alt="The cohort working hard and having fun." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/event-18.jpg" alt="The cohort working hard and having fun." loading="lazy" />
+</figure>
+</div>
 
-  <!-- Innovation Hub -->
-  <p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">The Trip to the Innovation Hub to Get Creative</p>
-  <div class="photo-grid" style="margin-bottom: 0;">
-    <figure class="photo-card">
-      <img src="assets/event-27.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/event-28.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/event-31.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
-    </figure>
-    <figure class="photo-card">
-      <img src="assets/event-32.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
-    </figure>
-  </div>
+<!-- Innovation Hub -->
+<p style="font-family:'JetBrains Mono',monospace; font-size:17px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-3); margin: 0 0 12px;">The Trip to the Innovation Hub to Get Creative</p>
+<div class="photo-grid" style="margin-bottom: 0;">
+<figure class="photo-card">
+<img src="assets/event-27.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/event-28.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/event-31.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
+</figure>
+<figure class="photo-card">
+<img src="assets/event-32.jpg" alt="The trip to the Innovation Hub to get creative." loading="lazy" />
+</figure>
+</div>
+
+<!-- ============================================================ -->
+<!-- NEW SECTION: 2 Week AI Bootcamp (20 hours) In Person Events -->
+<!-- ============================================================ -->
+<p class="section-label" style="margin-top: 52px;">Skill Forward 2 Week AI Bootcamp (20 hours) In Person Events</p>
+
+<div class="bootcamp-gallery">
+<div class="bootcamp-item">
+<p class="bootcamp-label">Voice of Customer Insights — Guest Speaker: Vera Sell (PSU School of Business)</p>
+<img src="assets/bootcamp-event-01-vera-sell-voc.jpg" alt="Voice of Customer Insights — Guest Speaker: Vera Sell (PSU School of Business)" loading="lazy" />
+</div>
+</div>
+
+<p class="bootcamp-label" style="margin: 0 0 16px;">May 2026 Cohort engaged in presentations and coursework</p>
+<div class="bootcamp-gallery" style="margin-bottom: 28px;">
+<div class="bootcamp-item">
+<img src="assets/bootcamp-event-02-cohort-course-presentation.jpg" alt="Cohort During a Course Presentation" loading="lazy" />
+</div>
+<div class="bootcamp-item">
+<img src="assets/bootcamp-event-03-cohort-engaging-presentation.jpg" alt="Cohort Engaging with Course Presentation" loading="lazy" />
+</div>
+<div class="bootcamp-item">
+<img src="assets/bootcamp-event-04-cohort-engaging-presentation-2.jpg" alt="Cohort Engaging with a Course Presentation" loading="lazy" />
+</div>
+<div class="bootcamp-item">
+<img src="assets/bootcamp-event-05-cohort-student-presentation.jpg" alt="Cohort Student Presentation" loading="lazy" />
+</div>
+<div class="bootcamp-item">
+<img src="assets/bootcamp-event-06-cohort-at-work-projects.jpg" alt="Cohort At Work on Projects" loading="lazy" />
+</div>
+<div class="bootcamp-item">
+<img src="assets/bootcamp-event-07-cohort-60-second-pitches.jpg" alt="Cohort at Work on 60 Second Pitches" loading="lazy" />
+</div>
+<div class="bootcamp-item">
+<img src="assets/bootcamp-event-08-cohort.jpg" alt="2 Week AI Bootcamp Cohort" loading="lazy" />
+</div>
+</div>
+
+<div class="bootcamp-gallery">
+<div class="bootcamp-item">
+<p class="bootcamp-label">May 2026 Cohort</p>
+<img src="assets/bootcamp-event-09-may-2026-cohort.jpg" alt="May 2026 Cohort" loading="lazy" />
+</div>
+<div class="bootcamp-item">
+<p class="bootcamp-label">May 2026 Cohort Having Fun</p>
+<img src="assets/bootcamp-event-10-cohort-having-fun.jpg" alt="May 2026 Cohort Having Fun" loading="lazy" />
+</div>
+</div>
 
 </section>
 
 <div class="bottom-nav">
-  <a href="index.html" style="display:inline-flex; align-items:center; gap:6px; padding:11px 20px; background:var(--ink); color:var(--paper); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; border-radius:3px; text-decoration:none; transition:background 0.15s ease;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">← Back to Home</a>
+<a href="index.html" style="display:inline-flex; align-items:center; gap:6px; padding:11px 20px; background:var(--ink); color:var(--paper); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; border-radius:3px; text-decoration:none; transition:background 0.15s ease;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">← Back to Home</a>
 </div>
 
 <footer>
-  <span>Skill-Forward · Picture Gallery</span>
-  <span>© 2026 · Escape With Velocity</span>
+<span>Skill-Forward · Picture Gallery</span>
+<span>© 2026 · Escape With Velocity</span>
 </footer>
 
 </body>

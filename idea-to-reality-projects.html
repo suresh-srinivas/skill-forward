@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Idea to Reality Projects — Skill Forward</title>
+<meta name="description" content="Projects built by the Skill Forward Idea to Reality (R2) May 2026 cohort." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #f4f0e8;
+--bg-2: #ebe5d8;
+--ink: #1a1714;
+--ink-2: #4a4338;
+--ink-3: #8a8170;
+--rule: #d9d1bf;
+--rule-strong: #b8ad95;
+--accent: oklch(46% 0.07 145);
+--accent-soft: oklch(46% 0.07 145 / 0.08);
+--paper: #faf7f0;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+background: var(--bg);
+color: var(--ink);
+font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+font-size: 16px;
+line-height: 1.55;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+min-height: 100vh;
+}
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); }
+
+.masthead {
+border-bottom: 1px solid var(--rule-strong);
+padding: 22px 40px 18px;
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+gap: 24px;
+position: sticky;
+top: 0;
+z-index: 5;
+backdrop-filter: blur(6px);
+background: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+.brand {
+font-family: "Newsreader", Georgia, serif;
+font-weight: 500;
+font-size: 22px;
+letter-spacing: -0.01em;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.brand-mark {
+width: 22px; height: 22px; border-radius: 50%;
+background: var(--accent);
+position: relative;
+}
+.brand-mark::after {
+content: ""; position: absolute; inset: 6px;
+border-radius: 50%; background: var(--bg);
+}
+.nav-links {
+display: flex; gap: 20px;
+font-family: "JetBrains Mono", ui-monospace, monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--ink-3);
+align-items: center;
+}
+.nav-links a { color: var(--ink-3); }
+.nav-links a:hover { color: var(--accent); }
+.back-btn {
+padding: 7px 16px;
+border: 1px solid var(--rule-strong);
+border-radius: 3px;
+background: var(--ink);
+color: var(--paper) !important;
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+transition: background 0.15s ease;
+}
+.back-btn:hover { background: var(--accent) !important; color: var(--paper) !important; }
+
+.hero {
+padding: 72px 40px 52px;
+max-width: 900px;
+margin: 0 auto;
+border-bottom: 1px solid var(--rule);
+}
+.eyebrow {
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.14em;
+color: var(--accent);
+margin-bottom: 18px;
+}
+.hero h1 {
+font-family: "Newsreader", serif;
+font-weight: 400;
+font-size: clamp(36px, 5vw, 64px);
+line-height: 1.05;
+letter-spacing: -0.025em;
+margin: 0 0 18px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero .lede {
+font-family: "Newsreader", serif;
+font-size: 18px;
+line-height: 1.5;
+color: var(--ink-2);
+max-width: 60ch;
+}
+
+.content {
+max-width: 900px;
+margin: 0 auto;
+padding: 52px 40px 80px;
+}
+
+.project-item {
+padding: 28px 0;
+border-bottom: 1px solid var(--rule);
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.project-item:last-child { border-bottom: none; }
+
+.project-title {
+font-family: "Newsreader", serif;
+font-size: 22px;
+font-weight: 500;
+letter-spacing: -0.01em;
+color: var(--ink);
+margin: 0;
+}
+.project-name {
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.14em;
+color: var(--ink-3);
+margin: 0;
+}
+.project-links {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+.project-link {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 8px 14px;
+border: 1px solid var(--rule-strong);
+border-radius: 3px;
+background: var(--paper);
+font-family: "JetBrains Mono", monospace;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--ink-2);
+transition: background 0.15s ease, color 0.15s ease;
+}
+.project-link:hover { background: var(--ink); color: var(--paper); }
+.project-link.primary {
+background: var(--ink);
+color: var(--paper);
+border-color: var(--ink);
+}
+.project-link.primary:hover { background: var(--accent); border-color: var(--accent); }
+
+.bottom-nav {
+padding: 0 40px 52px;
+max-width: 900px;
+margin: 0 auto;
+}
+footer {
+border-top: 1px solid var(--rule);
+padding: 28px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-family: "JetBrains Mono", monospace;
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: var(--ink-3);
+}
+
+@media (max-width: 700px) {
+.masthead { padding: 16px 20px; flex-wrap: wrap; }
+.hero { padding: 48px 20px 36px; }
+.content { padding: 36px 20px 60px; }
+.bottom-nav { padding: 0 20px 40px; }
+footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+<div class="brand">
+<span class="brand-mark"></span>
+<span>Skill&#8209;Forward</span>
+</div>
+<nav class="nav-links">
+<a href="testimonials.html">Testimonials</a>
+<a href="index.html" class="back-btn">← Back to Home</a>
+</nav>
+</header>
+
+<div class="hero">
+<div class="eyebrow">— May 2026 Cohort · R2</div>
+<h1>Idea to Reality.<br><em>Projects built by the cohort.</em></h1>
+<p class="lede">What participants in the Skill Forward Idea to Reality (10 HR RAMP) built and shipped — from idea to deployed solution.</p>
+</div>
+
+<section class="content">
+
+<div class="project-item">
+<p class="project-title">21 CFR 820 QMSR to ISO 13485 Gap Matrix</p>
+<p class="project-name">Pedro Hernandez</p>
+<div class="project-links">
+<a class="project-link primary" href="https://copilot.microsoft.com/shares/artifacts/9BtbwHcPKdH2VeNKhssWU?expand=true" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://drive.google.com/file/d/1hCzMI27puzlyNFV7BsWA986_C0ithKeX/view?usp=sharing" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">College Data Explorer</p>
+<p class="project-name">Susan Chow &amp; Sunitha Narayanan</p>
+<div class="project-links">
+<a class="project-link primary" href="https://college-data-explorer-458632234251.us-west1.run.app/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://college-data-explorer-458632234251.us-west1.run.app/tour.mp4" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">ROASTFOLIO</p>
+<p class="project-name">Sirisha Malladi</p>
+<div class="project-links">
+<a class="project-link primary" href="https://roastfolio.lovable.app/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://youtu.be/jG_SOdaw1zQ" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Civic PDX</p>
+<p class="project-name">Kristopher Mahdak</p>
+<div class="project-links">
+<a class="project-link primary" href="https://jimsixred.tech/examples/civic-pdx" target="_blank" rel="noopener">View Project →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">ChatShot</p>
+<p class="project-name">Shaila Mudigonda</p>
+<div class="project-links">
+<a class="project-link primary" href="https://smile-messenger.lovable.app" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://youtu.be/1bPhMj03Bb4" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Vibe Coding for Good</p>
+<p class="project-name">Pallavi Kadam</p>
+<div class="project-links">
+<a class="project-link primary" href="https://skill-forward-vibe-coding-for-good-lilac.vercel.app/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://6a080d1ea57cfef1393597f9--dynamic-nasturtium-dc0718.netlify.app/#platform" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Before You Knock</p>
+<p class="project-name">Jon Beam</p>
+<div class="project-links">
+<a class="project-link primary" href="https://before-you-knock.vercel.app/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://drive.google.com/drive/folders/1E5IxDPic9HY9nlairQyMvbMnh17Cl9o2" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Portfolio Roaster</p>
+<p class="project-name">Mary Killelea</p>
+<div class="project-links">
+<a class="project-link primary" href="https://roaster-analyzer-buddy.lovable.app/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://www.loom.com/share/0ec634ba61964e31bbcd0b33129ad4fa" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Update Skill Forward Website to Meet PCC and Worksystems Requirements for R2</p>
+<p class="project-name">Srikathyayani Srikanteswara</p>
+<div class="project-links">
+<a class="project-link primary" href="https://suresh-srinivas.github.io/skill-forward/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://drive.google.com/file/d/1Ny6Q_Y_xfCksgO8BPtrK4m0kWj8zB8zM/view?usp=sharing" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Wonder Practices</p>
+<p class="project-name">Kenyon Acton</p>
+<div class="project-links">
+<a class="project-link primary" href="https://kenyonacton.github.io/wonder-practices/" target="_blank" rel="noopener">View Project →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Chordial</p>
+<p class="project-name">Aprajita Shukla &amp; Mike Karras</p>
+<div class="project-links">
+<a class="project-link primary" href="https://github.com/mike-r-karras/chordial/releases/tag/v1.0.0" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://medium.com/@aprajita.shukla.w/as-a-beginner-ukulele-player-you-know-that-feeling-you-hear-a-song-you-love-and-immediately-want-a3b309119571" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Predictive Maintenance Risk Dashboard</p>
+<p class="project-name">Michael Moore</p>
+<div class="project-links">
+<a class="project-link primary" href="https://predictive-maintenance-risk-dashboard.streamlit.app/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://www.loom.com/share/f6fb46343e3743ac9b38d6de13e243e4" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Open Learning Hub For Skill Forward - Escape with Velocity Program</p>
+<p class="project-name">Kris Rodden</p>
+<div class="project-links">
+<a class="project-link primary" href="https://suresh-srinivas.github.io/skill-forward/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://docs.google.com/document/d/1OrZuV9jtlxIiUFo5c0Q2_vUYZ3sQXRJ7O5WPFI7QlHQ/edit?usp=sharing" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Your Hero's Journey with an Animal Ally</p>
+<p class="project-name">Supriya Shanbhag</p>
+<div class="project-links">
+<a class="project-link primary" href="https://v0-archetype-allies.vercel.app/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://www.loom.com/share/d24ffde5c6874722a91cac25f8dc6fc4" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">Gitjob</p>
+<p class="project-name">Tuan Doan</p>
+<div class="project-links">
+<a class="project-link" href="https://www.loom.com/share/3b4a09576f7c4d7f9426587254d4a328" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+<div class="project-item">
+<p class="project-title">NativeMade — Authentic Native American Arts and Crafts</p>
+<p class="project-name">Corinne Cameron Nakashima</p>
+<div class="project-links">
+<a class="project-link primary" href="https://nativemademarket.com/" target="_blank" rel="noopener">View Project →</a>
+<a class="project-link" href="https://drive.google.com/file/d/1LDcGKWz7JeoU4wo0fCzW3Np5DmEZlvzG/view?usp=sharing" target="_blank" rel="noopener">Video / Blog →</a>
+</div>
+</div>
+
+</section>
+
+<div class="bottom-nav">
+<a href="index.html" style="display:inline-flex; align-items:center; gap:6px; padding:11px 20px; background:var(--ink); color:var(--paper); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; border-radius:3px; text-decoration:none; transition:background 0.15s ease;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">← Back to Home</a>
+</div>
+
+<footer>
+<span>Skill-Forward · Idea to Reality (R2) Projects</span>
+<span>© 2026 · Escape With Velocity</span>
+</footer>
+
+</body>
+</html>

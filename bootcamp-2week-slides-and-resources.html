@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2 Week AI Bootcamp — Slides &amp; Resources — Skill Forward</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --bg-2: #ebe5d8;
+      --ink: #1a1714;
+      --ink-2: #4a4338;
+      --ink-3: #8a8170;
+      --rule: #d9d1bf;
+      --rule-strong: #b8ad95;
+      --accent: oklch(46% 0.07 145);
+      --accent-soft: oklch(46% 0.07 145 / 0.08);
+      --paper: #faf7f0;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+    }
+
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    .masthead {
+      border-bottom: 1px solid var(--rule-strong);
+      padding: 22px 40px 18px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(6px);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+    }
+    .brand {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-mark {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--accent);
+      position: relative;
+    }
+    .brand-mark::after {
+      content: ""; position: absolute; inset: 6px;
+      border-radius: 50%; background: var(--bg);
+    }
+    .nav-links {
+      display: flex; gap: 20px;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      align-items: center;
+    }
+    .nav-links a { color: var(--ink-3); }
+    .nav-links a:hover { color: var(--accent); }
+    .back-btn {
+      padding: 7px 16px;
+      border: 1px solid var(--rule-strong);
+      border-radius: 3px;
+      background: var(--ink);
+      color: var(--paper) !important;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: background 0.15s ease;
+    }
+    .back-btn:hover { background: var(--accent) !important; color: var(--paper) !important; }
+
+    .hero {
+      padding: 72px 40px 52px;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+    }
+    .eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: "Newsreader", serif;
+      font-weight: 400;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      margin: 0 0 18px;
+    }
+    .hero .lede {
+      font-family: "Newsreader", serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink-2);
+      max-width: 56ch;
+    }
+
+    .resources {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 52px 40px 80px;
+    }
+    .section-block + .section-block {
+      margin-top: 56px;
+      padding-top: 48px;
+      border-top: 2px solid var(--rule-strong);
+    }
+    .section-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin: 0 0 10px;
+    }
+    .section-heading {
+      font-family: "Newsreader", serif;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      margin: 0 0 28px;
+      color: var(--ink);
+    }
+    .resource-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .resource-item:first-child { padding-top: 0; }
+    .resource-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding-top: 4px;
+      min-width: 28px;
+      flex-shrink: 0;
+    }
+    .resource-body { flex: 1; }
+    .resource-title {
+      font-family: "Newsreader", serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 10px 18px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 3px;
+      transition: background 0.15s ease;
+    }
+    .resource-link:hover { background: var(--accent); color: var(--paper); }
+
+    .bottom-nav {
+      padding: 0 40px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-3);
+    }
+
+    @media (max-width: 700px) {
+      .masthead { padding: 16px 20px; flex-wrap: wrap; }
+      .hero { padding: 48px 20px 36px; }
+      .resources { padding: 36px 20px 60px; }
+      .bottom-nav { padding: 0 20px 40px; }
+      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <span>Skill&#8209;Forward</span>
+  </div>
+  <nav class="nav-links">
+    <a href="gallery/">Cohort Gallery</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="eyebrow">— 2 Week AI Bootcamp · May 2026 Cohort</div>
+  <h1>Slides &amp; Resources</h1>
+  <p class="lede">All lecture decks and supporting resources from the 2 Week AI Bootcamp (20 hours) — from kickoff through your 60-second pitch.</p>
+</div>
+
+<section class="resources">
+
+<div class="section-block">
+  <p class="section-eyebrow">— Lecture decks</p>
+  <h2 class="section-heading">Slides</h2>
+
+  <div class="resource-item">
+    <div class="resource-num">01</div>
+    <div class="resource-body">
+      <p class="resource-title">Bootcamp Kickoff</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Welcome to the Project-Based AI Bootcamp. Walks through the philosophy, the five tracks you can pick from, the four live sessions, and what you need to complete to earn your certificate, stipend, and AI credits.</p>
+      <a class="resource-link" href="assets/01-bootcamp-kickoff.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">02</div>
+    <div class="resource-body">
+      <p class="resource-title">Skill Forward — 6 Solo Projects</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Six solo project options you can ship under 20 hours: Portfolio Generator, Portfolio Roaster, Skill-Gap Analyzer, Interview Story Bank, Cold Outreach Crafter, and Skill Forward-Match.</p>
+      <a class="resource-link" href="assets/02-skill-forward-6-projects.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">03</div>
+    <div class="resource-body">
+      <p class="resource-title">Solo Project Brief Template</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Template to draft your project brief — scope, success criteria, and shipping plan.</p>
+      <a class="resource-link" href="assets/03-solo-project-brief-template.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">04</div>
+    <div class="resource-body">
+      <p class="resource-title">Claude Skills</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Working with Claude Skills — how to author, package, and use Skills to extend Claude for your project.</p>
+      <a class="resource-link" href="assets/04-claude-skills.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">05</div>
+    <div class="resource-body">
+      <p class="resource-title">Prompt Engineering</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Practical prompting patterns — structure, examples, and reliable techniques for getting consistent results.</p>
+      <a class="resource-link" href="assets/05-prompt-engineering.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">06</div>
+    <div class="resource-body">
+      <p class="resource-title">LLM Evaluation</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">How to evaluate LLM outputs — building evals, measuring quality, and knowing when your model is good enough to ship.</p>
+      <a class="resource-link" href="assets/06-llm-evaluation.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">07</div>
+    <div class="resource-body">
+      <p class="resource-title">Voice of Customer Insights — Guest Speaker: Vera Sell (PSU)</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Guest lecture from Vera Sell of PSU School of Business on the why and how of Voice of Customer insights.</p>
+      <a class="resource-link" href="assets/07-voice-of-customer-vera-sell-psu.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">08</div>
+    <div class="resource-body">
+      <p class="resource-title">Business Structures</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">A quick tour of common business structures and what each means for solo builders and small teams.</p>
+      <a class="resource-link" href="assets/08-business-structures.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">09</div>
+    <div class="resource-body">
+      <p class="resource-title">Agent Introduction</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Intro to AI agents — what they are, when to use them, and how they compose with tools and memory.</p>
+      <a class="resource-link" href="assets/09-agent-introduction.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">10</div>
+    <div class="resource-body">
+      <p class="resource-title">Vector Embeddings</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Foundations of vector embeddings and how they power semantic search, retrieval, and RAG-style systems.</p>
+      <a class="resource-link" href="assets/10-vector-embeddings.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">11</div>
+    <div class="resource-body">
+      <p class="resource-title">60-Second Pitch</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">How to crisply pitch your project in 60 seconds — structure, signals, and what makes it land.</p>
+      <a class="resource-link" href="assets/11-60-second-pitch.pdf" target="_blank" rel="noopener">Open Slides →</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-block">
+  <p class="section-eyebrow">— Further reading</p>
+  <h2 class="section-heading">Resources</h2>
+
+  <div class="resource-item">
+    <div class="resource-num">01</div>
+    <div class="resource-body">
+      <p class="resource-title">Turn Repeated Instructions into Reusable Skills in Lovable</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Lovable’s introduction to Skills — how reusable markdown instructions let you stop repeating yourself every time you build with AI.</p>
+      <a class="resource-link" href="https://lovable.dev/blog/introducing-skills" target="_blank" rel="noopener">Open Resource →</a>
+    </div>
+  </div>
+
+  <div class="resource-item">
+    <div class="resource-num">02</div>
+    <div class="resource-body">
+      <p class="resource-title">Prompt Engineering Whitepaper (Kaggle)</p>
+      <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.6;">Kaggle’s prompt engineering whitepaper — a deep dive into structured prompting techniques for getting consistent results from LLMs.</p>
+      <a class="resource-link" href="https://www.kaggle.com/whitepaper-prompt-engineering" target="_blank" rel="noopener">Open Resource →</a>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<div class="bottom-nav">
+  <a href="index.html" style="display:inline-flex; align-items:center; gap:6px; padding:11px 20px; background:var(--ink); color:var(--paper); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; border-radius:3px; text-decoration:none; transition:background 0.15s ease;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">← Back to Home</a>
+</div>
+
+<footer>
+  <span>Skill-Forward · 2 Week AI Bootcamp · May 2026 Cohort</span>
+  <span>© 2026 · Escape With Velocity</span>
+</footer>
+
+</body>
+</html>
